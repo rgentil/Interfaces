@@ -1,0 +1,59 @@
+body {
+    background-color: #212121;
+    color: #c6c6c6;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.logo div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+a:visited { text-decoration: none;}
+a:hover { text-decoration: none;}
+a:focus { text-decoration: none;}
+a:hover, a:active { text-decoration: none;}
+a:-webkit-any-link { text-decoration: none;}
+
+.logo a {
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Bahianita', sans-serif;
+    font-size: 60px;
+    width: 150px;
+    text-align: center;
+    background: linear-gradient(0deg, #FAC100, #FF7600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Bahiana', sans-serif;
+    font-size: 35px;
+    width: 400px;
+    text-align: left;
+    margin: 0 0 2px 10px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 230px;
+}
+
+.logo span {
+    height: 160px;
+    font-size: 150px;
+}
