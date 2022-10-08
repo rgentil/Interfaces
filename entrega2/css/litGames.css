@@ -1,3 +1,10 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
     background-color: #212121;
     color: #c6c6c6;
@@ -7,14 +14,32 @@ header {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
+    justify-content: space-between;
 }
 
-.logo div {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+content {
+    font-family: 'Bahianita', sans-serif;
+}
+.logo {
+    height: 230px;
+}
+
+.bar-search {
+    display: none;
+}
+
+.user {
+    display: none;
+}
+
+.burger {
+    margin: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.burger:hover { 
+    background: url("img/burguer1.png")
 }
 
 a:visited { text-decoration: none;}
@@ -23,11 +48,7 @@ a:focus { text-decoration: none;}
 a:hover, a:active { text-decoration: none;}
 a:-webkit-any-link { text-decoration: none;}
 
-.logo a {
-    text-decoration: none;
-}
-
-h1 {
+.header-title {
     font-family: 'Bahianita', sans-serif;
     font-size: 60px;
     width: 150px;
@@ -38,7 +59,7 @@ h1 {
     margin: 0;
 }
 
-h2 {
+.slogan {
     font-family: 'Bahiana', sans-serif;
     font-size: 35px;
     width: 400px;
@@ -46,14 +67,238 @@ h2 {
     margin: 0 0 2px 10px;
 }
 
-.logo {
-    display: flex;
-    flex-direction: column;
-    width: 150px;
-    height: 230px;
+.slogan.footer {
+    text-align: center;
+    padding-bottom: 40px;
 }
 
-.logo span {
-    height: 160px;
-    font-size: 150px;
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.footer-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.footer-2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.footer-2 .footer-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px; 
+    padding-bottom: 20px;  
+}
+
+.footer-2 .footer-subtitle {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px; 
+    padding-bottom: 15px;  
+}
+
+.footer-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding-bottom: 30px;
+}
+.footer-social a {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.footer-3 {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding-bottom: 30px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+/* Inicio del carrusel**/
+.content-carousel-highlight {
+    background-color: #C6C6C6;
+    padding-bottom: 5px;
+}
+
+.carousel-title {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 60px;
+    align-items: center;
+    text-align: center;    
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+}
+.carousel-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+    /*max-width: 800px;*/
+    width: 90%;
+    margin: auto;
+}
+.wrapped-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    justify-content: center;
+}
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-y: hidden;
+    display: flex;
+    gap: 1em;
+    scrollbar-width: none;
+}
+.arrows {
+    width: 20px;
+    height: 45px;
+    outline: none;
+    border: none;
+    background-color: #C6C6C6;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    padding: 0;
+    pointer-events: all;
+}
+.arrows:hover {
+    background-color: #C6C6C6;
+    transform: scale(1.1);
+}
+.arrows svg {
+    width: 1.5em;
+    height: 1.5em;
+    fill: white;
+}
+.arrow-inactive {
+    opacity: 0.5;
+    cursor: auto;
+}
+.arrow-inactive:hover {
+    transform: none;
+}
+
+.carousel-item-title {
+    width: 244px;
+    height: 45px;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    align-items: center;
+    text-align: center;
+    color: #C6C6C6;
+}
+.carousel-item {
+    width: 250px;
+    height: 400px;
+    background-color: #212121;
+    /*display: flex;
+    flex-direction: column;*/
+    text-align: center;
+    border: 2px solid #FAC100;
+    /*border-image-source: linear-gradient(to left, #FAC100, #FF7600);*/
+}
+.item-btn-play {
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
+    border: 1px solid #FAC100;
+    border-radius: 6px;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 41px;
+    color: #212121;
+}
+.item-btn-play:hover {
+    width: 101px;
+    height: 41px;
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
+.carousel-item-img {
+    width: 242px;
+    height: 242px;    
+}
+
+.carousel-wrapper ::-webkit-scrollbar {
+    height: 0px;
+}
+/* Fin del carrusel**/
+
+@media only screen and (min-width: 767px){
+    header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        padding-left: 10px;
+    }
+    .burger {
+        padding-right: 20px;
+    }
+    .footer-items {
+        padding-right: 80px;
+        padding-left: 80px;
+    }
+    .slogan {
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .user {
+        display: block;
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .bar-search {
+        display: block;
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+    .footer-2 {
+        flex-direction: row;
+    }
 }
