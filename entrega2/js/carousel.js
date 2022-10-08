@@ -1,5 +1,5 @@
-  "use strict";
-  function scrollEv(leftArrow, rightArrow, carousel) {
+"use strict";
+function scrollEv(leftArrow, rightArrow, carousel) {
   if (carousel.scrollLeft <= 0) {
     leftArrow.classList.add("arrow-inactive");
   } else {
@@ -95,5 +95,5 @@ window.onload = () => {
       scrollEv(leftArrows[i], rightArrows[i], carousels[i]);
     };
   }
-  
+
 };
