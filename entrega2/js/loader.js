@@ -5,7 +5,7 @@ var Loader = {
 
     loader: null,
     body: null,
-    html: '<span><svg width="40" height="40" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="15"></svg></span>',
+    html: '<span><svg width="40" height="40" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="15"></svg><div class="loading-text">0%</div></span>',
     cssClass: "loader",
     check: function () {
         if (this.body == null) {
@@ -65,11 +65,27 @@ if (typeof module !== "undefined") {
 
 document.addEventListener("DOMContentLoaded", function (event) {
     Loader.open();
+    const loadText = document.querySelector('.loading-text');
+
+let load = 0;
+let int = setInterval(blurring, 50);
+function blurring() {
+    load++
+    if (load > 99) {
+      clearInterval(int);
+    }
+    loadText.innerText = `${load}%`;
+    loadText.style.opacity = scale(load, 0, 100, 1, 0);
+
+}
+function scale(number, inMin, inMax, outMin, outMax) {
+  return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+}
     setTimeout(() => {
         console.log("Delayed for 10 second.");
         let loader = document.getElementById("loader");
         loader.style.display = 'none';
         console.log(loader);
 
-    }, "10000")
+    }, "5000")
 });
