@@ -257,8 +257,15 @@ footer {
     /*display: flex;
     flex-direction: column;*/
     text-align: center;
-    border: 5px solid #FAC100;
+    /*border: 5px solid #FAC100;*/
+    border-image: linear-gradient(#FAC100, #FF7600) 30;
+    border-width: 4px;
+    border-style: solid;
     /*border-image-source: linear-gradient(to left, #FAC100, #FF7600);*/
+}
+
+.carousel-item-card:hover {
+    border-image: linear-gradient(#FF7600, #FAC100) 30;
 }
 
 .flip-card-inner {
@@ -298,7 +305,73 @@ footer {
     transform: rotateY(180deg);
 }
 
+.item-btn {
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 41px;
+    color: #212121;
+    border: 1px solid #FAC100;
+}
+
 .item-btn-play {
+    background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-play:hover {
+    width: 105px;
+    height: 45px;
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
+.item-btn-reservar {
+    background: radial-gradient(50% 50% at 50% 50%, #FF7600 0%, #FAC100 100%);
+}
+
+.item-btn-reservar:hover {
+    width: 105px;
+    height: 45px;
+    background: radial-gradient(50% 50% at 50% 50%, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-bajar {
+    background: linear-gradient(270deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-bajar:hover {
+    width: 105px;
+    height: 45px;
+    background: linear-gradient(90deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-comprar {
+    background: linear-gradient(90deg, #FAC100 0%, #FF7600 100%);
+
+}
+
+.item-btn-comprar:hover {
+    width: 105px;
+    height: 45px;
+    background: linear-gradient(270deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-bajando {
+    background: linear-gradient(90deg, #636363 6.25%, #C6C6C6 100%);
+
+}
+
+.item-btn-bajando:hover {
+    width: 105px;
+    height: 45px;
+    background: linear-gradient(180deg, #636363 12.5%, #C6C6C6 100%);
+}
+
+.btn-play {
     box-sizing: border-box;
     width: 100px;
     height: 40px;
@@ -313,13 +386,14 @@ footer {
     color: #212121;
 }
 
-.item-btn-play:hover {
+.btn-play:hover {
     width: 105px;
     height: 45px;
+
     background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
 }
 
-.item-btn-reservar {
+.item-btn-reservar-ahora {
     box-sizing: border-box;
     width: 300px;
     height: 120px;
@@ -334,7 +408,7 @@ footer {
     color: #212121;
 }
 
-.item-btn-reservar:hover {
+.item-btn-reservar-ahora:hover {
     width: 300px;
     height: 120px;
     background: radial-gradient(50% 50% at 50% 50%, #FAC100 0%, #FF7600 100%);
@@ -508,6 +582,56 @@ body.loader .loader_website span {
     width: 40%;
     border: 1px solid #FAC100;
     top: 77%
+}
+
+.title-disponible {
+    background: red;
+    position: absolute;
+    bottom: 0.4%;
+    right: 0.1%;
+    width: 50%;
+    height: 80%;
+    /*clip-path: circle(50% at center);*/
+    clip-path: circle(10% at bottom right);
+    transition: background-color, width 1s;
+    /*Transition tiene 4 propiedaes
+    */
+    /*Que propiedades van a sufrir la transiocion
+    por ejemplo: background-color, width, height o all*/
+    transition-property: clip-path;
+
+    /*Me define el tiempo que va a durar la transicion*/
+    transition-duration: 1s;
+
+    /*Define la curva de aceleracion de la transicion, por defecto es ease
+     ease | ease-in | ease-in-out | ease-out | linear*/
+    transition-timing-function: linear;
+
+    /*Define tiempo de espera para que una transicion se ejecute*/
+    transition-delay: 0.5s;
+}
+
+.hero .title-disponible:hover {
+    /*background: steelblue;*/
+    /**transition: background-color 2s;
+    Se puede agregar aca o directamente en la clase item*/
+    /*width: 400px;*/
+    clip-path: circle(80% at bottom right);
+}
+
+.title-disponible p {
+    position: absolute;
+    bottom: 35%;
+    right: 10%;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 84px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    transform: rotate(-44.97deg);
 }
 
 .img {
