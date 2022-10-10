@@ -248,11 +248,16 @@ footer {
 .carousel-item {
     width: 250px;
     height: 400px;
+}
+
+.carousel-item-card {
+    width: 250px;
+    height: 400px;
     background-color: #212121;
     /*display: flex;
     flex-direction: column;*/
     text-align: center;
-    border: 2px solid #FAC100;
+    border: 5px solid #FAC100;
     /*border-image-source: linear-gradient(to left, #FAC100, #FF7600);*/
 }
 
