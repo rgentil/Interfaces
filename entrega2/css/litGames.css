@@ -389,7 +389,6 @@ footer {
 .btn-play:hover {
     width: 105px;
     height: 45px;
-
     background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
 }
 
@@ -585,7 +584,7 @@ body.loader .loader_website span {
 }
 
 .title-disponible {
-    background: red;
+    background: linear-gradient(180deg, #ff0000 12.5%, #faab00 100%);
     position: absolute;
     bottom: 0.4%;
     right: 0.1%;
@@ -626,7 +625,7 @@ body.loader .loader_website span {
     font-family: 'Bahianita';
     font-style: normal;
     font-weight: 400;
-    font-size: 70px;
+    font-size: 40px;
     line-height: 84px;
     align-items: center;
     text-align: center;
@@ -641,6 +640,34 @@ body.loader .loader_website span {
 .breadcrumbs {
     width: 100%;
     width: 50%;
+}
+
+.historia, .feature, .genero, 
+.modo-de-juego, .argumento {
+    border-image: linear-gradient(#FAC100, #FF7600) 30;
+    border-width: 4px;
+    border-style: solid;
+    margin: 5px;
+    padding: auto;
+}
+
+.historia:hover, .feature:hover, .genero:hover, 
+.modo-de-juego:hover, .argumento:hover {
+    border-image: linear-gradient(#FF7600, #FAC100) 30;
+}
+
+.content-historia {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-historia h1{
+    margin: 5px;
+}
+
+.content-historia p{
+    margin: 10px;
 }
 
 /* End hero image */
@@ -685,5 +712,30 @@ body.loader .loader_website span {
 
     .footer-2 {
         flex-direction: row;
+    }
+
+    .historia{
+        grid-area: historia;
+    }
+    .feature{
+        grid-area: feature;
+    }
+    .genero{
+        grid-area: genero;
+    }
+    .modo-de-juego{
+        grid-area: modo-de-juego;
+    }
+    .argumento{
+        grid-area: argumento;
+    }
+    
+    .content-historia{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1f;
+        grid-template-areas: 
+            "historia feature modo-de-juego"
+            "historia genero argumento"
+        ;
     }
 }
