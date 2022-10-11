@@ -40,7 +40,7 @@ content {
 }
 
 .burger:hover {
-    background: url("img/burguer1.png")
+    background: url("/img/burguer1.png")
 }
 
 a:-webkit-any-link {
@@ -728,6 +728,17 @@ body.loader .loader_website span {
     padding: 20px;
     height: 98%;
     width: 30%; /* Could be more or less, depending on screen size */
+    animation: slide 0.6s;
+    animation-timing-function: ease;
+  }
+
+  @keyframes slide {
+    from {
+        right: -300px;
+    }
+    to {
+        right: 5px;
+    }
   }
   
   /* The Close Button */
@@ -770,17 +781,27 @@ body.loader .loader_website span {
     margin: 8px;
   }
 
+.modal-content a:hover {
+    color: #e8961a;
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
 .social {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: auto;
+    width: 80%;
+    margin-top: 15px;
 }
 
-.social a {
-    padding: 5px 10px;
+.social img {
+    height: 25px;
+    width: 25px;
 }
-
 
 /* End hero image */
 @media only screen and (min-width: 767px) {
