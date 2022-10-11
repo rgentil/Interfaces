@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Litgames</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     <link href="http://fonts.cdnfonts.com/css/bahianita" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/bahiana" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="css/litGames.css" rel="stylesheet">
-
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -36,12 +33,57 @@
             </a>
         </div>
         <div class="burger">
-            <a href="#">
+            <a id="myBtn">
                 <img src="img/burguer.png" alt="Menu">
             </a>
         </div>
     </header>
-
+    <!-- The Modal -->
+    <nav id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>
+                <h3>Usuario</h3>
+                <ul>
+                    <li>Mi Cuenta</li>
+                    <li>Mis Medios de Pago</li>
+                    <li>Achievements</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Juegos</h3>
+                <ul>
+                    <li>Mis Juegos</li>
+                    <li>Estadísticas</li>
+                    <li>Más Vendidos</li>
+                    <li>Nuevos</li>
+                    <li>Ofertas</li>
+                    <li>Gratis</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Social</h3>
+                <div class="social">
+                    <a href="games.html">
+                        <img src="img/iconosface.png" alt="Facebook">
+                    </a>
+                    <a href="games.html">
+                        <img src="img/iconosIG.png" alt="Instagram">
+                    </a>
+                    <a href="games.html">
+                        <img src="img/iconos.png" alt="Games">
+                    </a>
+                    <a href="games.html">
+                        <img src="img/iconostwiter.png" alt="Tweeter">
+                    </a>
+                    <a href="games.html">
+                        <img src="img/iconosyoutuve.png" alt="Youtuve">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="hero">
         <!-- background image -->
         <img class="gfg" src="img/totk.png">
@@ -232,7 +274,6 @@
         </div>
     </footer>
 </body>
-
 <script text="text/javascript" src="js/carousel.js"></script>
-
+<script text="text/javascript" src="js/menu.js"></script>
 </html>

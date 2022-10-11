@@ -164,7 +164,6 @@ footer {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
 }
 
 .carousel-wrapper {
@@ -698,6 +697,90 @@ body.loader .loader_website span {
     display: inline-block;
     vertical-align: top;
 }
+
+.content-historia p {
+    margin: 10px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    position: absolute;
+    top: 1%;
+    right: 5px;
+    background-color: #212121;
+    border-image: linear-gradient(#FAC100, #FF7600) 30 round;
+    border-width: 1px;
+    border-style: solid;
+    padding: 20px;
+    height: 98%;
+    width: 30%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover, .close:focus {
+    color: #FF7600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-content h3 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-size: 50px;
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .modal-content ul {
+    list-style-type: none;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #e8961a;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .modal-content li {
+    color: #C6C6C6;
+    font-family: "Open Sans", sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+    margin: 8px;
+  }
+
+
+.social {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.social a {
+    padding: 5px 10px;
+}
+
 
 /* End hero image */
 @media only screen and (min-width: 767px) {
