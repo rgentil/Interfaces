@@ -642,8 +642,11 @@ body.loader .loader_website span {
     width: 50%;
 }
 
-.historia, .feature, .genero, 
-.modo-de-juego, .argumento {
+.historia,
+.feature,
+.genero,
+.modo-de-juego,
+.argumento {
     border-image: linear-gradient(#FAC100, #FF7600) 30;
     border-width: 4px;
     border-style: solid;
@@ -651,8 +654,11 @@ body.loader .loader_website span {
     padding: auto;
 }
 
-.historia:hover, .feature:hover, .genero:hover, 
-.modo-de-juego:hover, .argumento:hover {
+.historia:hover,
+.feature:hover,
+.genero:hover,
+.modo-de-juego:hover,
+.argumento:hover {
     border-image: linear-gradient(#FF7600, #FAC100) 30;
 }
 
@@ -660,14 +666,36 @@ body.loader .loader_website span {
     margin: 5%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-.content-historia h1{
-    margin: 5px;
-}
-
-.content-historia p{
+.content-historia h1 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FAC100;
     margin: 10px;
+}
+
+.content-historia p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: #FFFFFF;
+    margin: 10px;
+}
+
+.content-historia img {
+    margin-left: 30px;
+}
+
+#flame-texto {
+    display: inline-block;
+    vertical-align: top;
 }
 
 /* End hero image */
@@ -714,26 +742,30 @@ body.loader .loader_website span {
         flex-direction: row;
     }
 
-    .historia{
+    .historia {
         grid-area: historia;
     }
-    .feature{
+
+    .feature {
         grid-area: feature;
     }
-    .genero{
+
+    .genero {
         grid-area: genero;
     }
-    .modo-de-juego{
+
+    .modo-de-juego {
         grid-area: modo-de-juego;
     }
-    .argumento{
+
+    .argumento {
         grid-area: argumento;
     }
-    
-    .content-historia{
+
+    .content-historia {
         display: grid;
         grid-template-columns: 1fr 1fr 1f;
-        grid-template-areas: 
+        grid-template-areas:
             "historia feature modo-de-juego"
             "historia genero argumento"
         ;
