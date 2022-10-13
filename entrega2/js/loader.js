@@ -67,20 +67,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
     Loader.open();
     const loadText = document.querySelector('.loading-text');
 
-let load = 0;
-let int = setInterval(blurring, 50);
-function blurring() {
-    load++
-    if (load > 99) {
-      clearInterval(int);
-    }
-    loadText.innerText = `${load}%`;
-    loadText.style.opacity = scale(load, 0, 100, 1, 0);
+    let load = 0;
+    let int = setInterval(blurring, 50);
+    function blurring() {
+        load++
+        if (load > 99) {
+            clearInterval(int);
+        }
+        loadText.innerText = `${load}%`;
+        loadText.style.opacity = scale(load, 0, 100, 1, 0);
 
-}
-function scale(number, inMin, inMax, outMin, outMax) {
-  return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-}
+    }
+    function scale(number, inMin, inMax, outMin, outMax) {
+        return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
     setTimeout(() => {
         console.log("Delayed for 10 second.");
         let loader = document.getElementById("loader");

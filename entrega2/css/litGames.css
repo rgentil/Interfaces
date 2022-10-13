@@ -26,14 +26,37 @@ content {
 }
 
 .bar-search {
-    display: none;
+    position: relative;
+    margin: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50%;
 }
 
+.text-busqueda {
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.lupa {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    margin: auto;
+}
+
+
 .user {
-    display: none;
+    margin: auto;
+    margin-right: 10px;
 }
 
 .burger {
+    display: flex;
+    flex-wrap: nowrap;
     margin: auto;
     margin-left: 10px;
     margin-right: 10px;
@@ -832,21 +855,6 @@ body.loader .loader_website span {
         margin: auto;
         margin-left: 10px;
         margin-right: 10px;
-    }
-
-    .user {
-        display: block;
-        margin: auto;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .bar-search {
-        display: block;
-        margin: auto;
-        margin-left: 10px;
-        margin-right: 10px;
-
     }
 
     .footer-2 {
