@@ -296,6 +296,22 @@ footer {
     top: 10px;
     left: 10px;
 }
+.precio-final {
+    position: absolute;
+    left: 10px;
+    bottom: 35px;
+    color: #FAC100;
+    font-size:115%;
+}
+
+.precio-original{
+    position: absolute;
+    left: 10px;
+    bottom: 55px;
+    text-decoration: line-through;
+    font-size:100%;
+}
+
 
 .flip-card-inner {
     position: relative;
