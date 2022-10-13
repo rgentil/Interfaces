@@ -22,7 +22,23 @@ content {
 }
 
 .logo {
+    position: relative;
     height: 230px;
+}
+
+.slogan-logo {
+    position: absolute;
+    font-family: 'Bahiana', sans-serif;
+    font-size: 30px;
+    width: 350px;
+    bottom: 8px;
+    left: 155px;
+}
+
+#slogan-logo {
+    position: absolute;
+    bottom: 3px;
+    left: 145px;
 }
 
 .bar-search {
@@ -34,11 +50,29 @@ content {
 }
 
 .text-busqueda {
+    font-family: 'Bahianita', sans-serif;
+    font-size: 27px;
     height: 60px;
     background: #424242;
     border-radius: 15px;
     width: 100%;
-    padding-left: 5px;
+    padding-left: 10px;
+}
+
+::placeholder {
+    color: #FAC100;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #FAC100;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #FAC100;
 }
 
 .lupa {
