@@ -737,11 +737,6 @@ body.loader .loader_website span {
     width: 100%;
 }
 
-.breadcrumbs {
-    width: 100%;
-    width: 50%;
-}
-
 .historia,
 .feature,
 .genero,
@@ -912,6 +907,32 @@ body.loader .loader_website span {
 .social img {
     height: 25px;
     width: 25px;
+}
+
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+}
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: #C6C6C6;
+    content: ">>";
+}
+
+ul.breadcrumb li a {
+    color: #C6C6C6;
+    text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+    color: #C6C6C6;
+    text-decoration: underline;
 }
 
 /* End hero image */
