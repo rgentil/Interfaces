@@ -463,6 +463,11 @@ footer {
     height: 242px;
 }
 
+.carousel-item-img-game{
+    width: 242px;
+    height: 392px;
+}
+
 .carousel-targeta-item-img {
     width: auto;
 }
