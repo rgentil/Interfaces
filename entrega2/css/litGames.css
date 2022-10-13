@@ -487,6 +487,26 @@ footer {
     background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
 }
 
+.btn-comentar {
+    box-sizing: border-box;
+    width: 85px;
+    height: 35px;
+    background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
+    border: 1px solid #FAC100;
+    border-radius: 6px;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 30px;
+    line-height: 10px;
+    color: #212121;
+    margin-top: 10px;
+}
+
+.btn-comentar:hover {
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
 .item-btn-reservar-ahora {
     box-sizing: border-box;
     width: 300px;
@@ -796,6 +816,118 @@ body.loader .loader_website span {
 .content-historia p {
     margin: 10px;
 }
+
+.content-detalle-juego {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "detalle-juego opinion"
+    ;
+    border-image: linear-gradient(#FAC100, #FF7600) 30;
+    border-width: 2px;
+    border-style: solid;
+    margin: 30px;
+    padding: 15px;
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.detalle-juego {
+    grid-area: detalle-juego;
+}
+
+.opinion {
+    grid-area: opinion;
+    overflow: auto;
+}
+
+.comentarista {
+    display: flex;
+    margin-top: 15px;
+}
+
+.comentarista div{
+    margin-left: 10px;
+}
+
+
+.detalle-cuatro-en-legends h1 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: #C6C6C6;
+}
+
+.detalle-cuatro-en-legends h2 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FAC100;
+    margin-top: 10px;
+}
+
+.detalle-cuatro-en-legends h3 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+    color: #FF7600;
+}
+
+.detalle-cuatro-en-legends h4 {
+    font-family: 'Bahiana';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FAC100;
+}
+
+.detalle-cuatro-en-legends p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 27px;
+    color: #C6C6C6;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+.detalle-encabezado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.detalle-encabezado div {
+    margin: auto;
+}
+
+.content-comentar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.text-detalle {
+    font-family: 'Bahianita', sans-serif;
+    font-size: 27px;
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width: 100%;
+    padding-left: 10px;
+}
+
 
 /* The Modal (background) */
 .modal {
