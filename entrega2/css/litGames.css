@@ -291,25 +291,41 @@ footer {
     border-image: linear-gradient(#FF7600, #FAC100) 30;
 }
 
+.carousel-item-card iframe {
+    width: 550px;
+    height: 400px;
+}
+
+#carousel-item-card {
+    width: 100%;
+    height: 100%;
+}
+
+#carousel-item {
+    width: 100%;
+    height: 100%;
+}
+
 .img-destacada {
     position: absolute;
     top: 10px;
     left: 10px;
 }
+
 .precio-final {
     position: absolute;
     left: 10px;
     bottom: 35px;
     color: #FAC100;
-    font-size:115%;
+    font-size: 115%;
 }
 
-.precio-original{
+.precio-original {
     position: absolute;
     left: 10px;
     bottom: 55px;
     text-decoration: line-through;
-    font-size:100%;
+    font-size: 100%;
 }
 
 
@@ -463,7 +479,7 @@ footer {
     height: 242px;
 }
 
-.carousel-item-img-game{
+.carousel-item-img-game {
     width: 242px;
     height: 392px;
 }
@@ -754,20 +770,28 @@ body.loader .loader_website span {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
     position: absolute;
     top: 1%;
     right: 5px;
@@ -777,35 +801,38 @@ body.loader .loader_website span {
     border-style: solid;
     padding: 20px;
     height: 98%;
-    width: 30%; /* Could be more or less, depending on screen size */
+    width: 30%;
+    /* Could be more or less, depending on screen size */
     animation: slide 0.6s;
     animation-timing-function: ease;
-  }
+}
 
-  @keyframes slide {
+@keyframes slide {
     from {
         right: -300px;
     }
+
     to {
         right: 5px;
     }
-  }
-  
-  /* The Close Button */
-  .close {
+}
+
+/* The Close Button */
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover, .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #FF7600;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  .modal-content h3 {
+.modal-content h3 {
     font-family: 'Bahianita';
     font-style: normal;
     font-size: 50px;
@@ -813,23 +840,23 @@ body.loader .loader_website span {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
+}
 
-  .modal-content ul {
+.modal-content ul {
     list-style-type: none;
     padding-bottom: 5px;
     border-bottom: 3px solid #e8961a;
     padding-bottom: 20px;
     margin-bottom: 20px;
-  }
+}
 
-  .modal-content li {
+.modal-content li {
     color: #C6C6C6;
     font-family: "Open Sans", sans-serif;
     font-size: 25px;
     font-weight: lighter;
     margin: 8px;
-  }
+}
 
 .modal-content a:hover {
     color: #e8961a;
@@ -909,5 +936,17 @@ body.loader .loader_website span {
             "historia feature modo-de-juego"
             "historia genero argumento"
         ;
+    }
+
+    .carousel-item-card iframe {
+        width: 700px;
+        height: 550px;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    .carousel-item-card iframe {
+        width: 900px;
+        height: 700px;
     }
 }
