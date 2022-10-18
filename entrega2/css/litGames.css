@@ -277,7 +277,7 @@ footer {
     height: 45px;
     outline: none;
     border: none;
-    background-color: #C6C6C6;
+    background-color: #FF7600;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -291,7 +291,7 @@ footer {
 }
 
 .arrows:hover {
-    background-color: #C6C6C6;
+    background-color: #FF7600;
     transform: scale(1.1);
 }
 
@@ -368,12 +368,36 @@ footer {
     left: 10px;
 }
 
+.div-precios {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff0000;
+    width: 90px;
+    height: 45px;
+    border: 5px solid #ff0000;
+}
+
+.precios {
+    position: relative;
+    width: 100px;
+    height: 70px;
+}
+
+.precio {
+    position: absolute;
+    left: 5px;
+    bottom: 40px;
+    color: #FAC100;
+    font-size: 150%;
+}
+
 .precio-final {
     position: absolute;
     left: 10px;
     bottom: 35px;
     color: #FAC100;
-    font-size: 115%;
+    font-size: 130%;
 }
 
 .precio-original {
@@ -443,7 +467,7 @@ footer {
     background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
     position: absolute;
     top: -2px;
-    left:-2px;
+    left: -2px;
     background-size: 400%;
     z-index: -1;
     filter: blur(5px);
@@ -475,13 +499,22 @@ footer {
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
 }
 
 
-.item-btn-play, .item-btn-play:active {
+.item-btn-play,
+.item-btn-play:active {
     background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
 }
 
@@ -888,7 +921,7 @@ body.loader .loader_website span {
     margin-top: 15px;
 }
 
-.comentarista div{
+.comentarista div {
     margin-left: 10px;
 }
 
