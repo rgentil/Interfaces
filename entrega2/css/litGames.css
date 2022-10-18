@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Bahiana';
+    src: url('../fonts/Bahiana-Regular.otf') format("opentype");
+}
+
+@font-face {
+    font-family: 'Bahianita';
+    src: url("../fonts/Bahianita-Regular.ttf") format('truetype');
+}
+  
+@font-face {
+    font-family: 'Open Sans';
+    src: url("../fonts/open-sans.regular.ttf") format('truetype');
+}
+
 * {
     border: 0;
     box-sizing: border-box;
