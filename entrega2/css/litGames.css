@@ -196,7 +196,7 @@ footer {
 
 /* Inicio del carrusel**/
 .content-carousel-highlight {
-    background-color: #C6C6C6;
+    background-color: #FF7600;
     padding-bottom: 5px;
 }
 
@@ -218,6 +218,13 @@ footer {
     align-items: center;
     text-align: center;
     background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.content-carousel-highlight .carousel-title {
+    background: linear-gradient(180deg, #212121 12.5%, #424242 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -402,25 +409,68 @@ footer {
 
 .item-btn {
     box-sizing: border-box;
-    width: 100px;
-    height: 40px;
+    width: 4em;
+    height: 1.6em;
     border-radius: 6px;
     font-family: 'Bahianita';
     font-style: normal;
     font-weight: 400;
     font-size: 34px;
     line-height: 41px;
-    color: #212121;
     border: 1px solid #FAC100;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
 }
 
-.item-btn-play {
+.item-btn:before {
+    content: '';
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.item-btn:active:after {
+    background: transparent;
+}
+
+.item-btn:hover:before {
+    opacity: 1;
+}
+
+.item-btn:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+.item-btn-play, .item-btn-play:active {
     background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
 }
 
 .item-btn-play:hover {
-    width: 105px;
-    height: 45px;
     background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
 }
 
@@ -429,8 +479,6 @@ footer {
 }
 
 .item-btn-reservar:hover {
-    width: 105px;
-    height: 45px;
     background: radial-gradient(50% 50% at 50% 50%, #FAC100 0%, #FF7600 100%);
 }
 
@@ -439,19 +487,14 @@ footer {
 }
 
 .item-btn-bajar:hover {
-    width: 105px;
-    height: 45px;
     background: linear-gradient(90deg, #FAC100 0%, #FF7600 100%);
 }
 
 .item-btn-comprar {
     background: linear-gradient(90deg, #FAC100 0%, #FF7600 100%);
-
 }
 
 .item-btn-comprar:hover {
-    width: 105px;
-    height: 45px;
     background: linear-gradient(270deg, #FAC100 0%, #FF7600 100%);
 }
 
@@ -461,15 +504,11 @@ footer {
 }
 
 .item-btn-bajando:hover {
-    width: 105px;
-    height: 45px;
     background: linear-gradient(180deg, #636363 12.5%, #C6C6C6 100%);
 }
 
 .btn-play {
     box-sizing: border-box;
-    width: 100px;
-    height: 40px;
     background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
     border: 1px solid #FAC100;
     border-radius: 6px;
@@ -482,8 +521,6 @@ footer {
 }
 
 .btn-play:hover {
-    width: 105px;
-    height: 45px;
     background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
 }
 
@@ -507,25 +544,15 @@ footer {
     background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
 }
 
-.item-btn-reservar-ahora {
-    box-sizing: border-box;
+.reservar-ahora {
     width: 300px;
     height: 120px;
     background: radial-gradient(50% 50% at 50% 50%, #FF7600 0%, #FAC100 100%);
-    border: 1px solid #FAC100;
-    border-radius: 6px;
-    font-family: 'Bahianita';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 70px;
-    line-height: 84px;
-    color: #212121;
 }
 
 .item-btn-reservar-ahora:hover {
     width: 300px;
     height: 120px;
-    background: radial-gradient(50% 50% at 50% 50%, #FAC100 0%, #FF7600 100%);
 }
 
 .carousel-item-img {
