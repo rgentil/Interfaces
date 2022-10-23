@@ -90,10 +90,9 @@
         </ul>
     </div>
 
-    <div class="hero">
+    <div class="hero" id="div-hero-game">
         <!-- background image -->
         <img class="gfg" src="img/hero.png">
-        <!-- title and tag line with button -->
         <div class="hero-title" id="hero-title-jugar">
             <h1 class="titles">Cuatro en Legends</h1>
             <button class="item-btn btn-play" id="btn-play-cel">Jugar</button>
@@ -183,8 +182,19 @@
                 </div>
             </div>
         </div>
-
     </div>
+    
+    <div class="content-canvas">
+        <div class="opciones-canvas">
+            <div class="timer">60</div>
+            <div class="btn-canvas">
+                <button class="item-btn btn-play" id="btn-reiniciar">Reiniciar</button>
+                <button class="item-btn item-btn-bajando" id="btn-game-out">Salir</button>
+            </div>
+        </div>
+        <canvas id="canvas" class="canvas"></canvas>
+    </div>
+        
 
     <section class="content-detalle-juego">
         <section class="detalle-juego">

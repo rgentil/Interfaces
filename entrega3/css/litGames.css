@@ -741,12 +741,6 @@ body.loader .loader_website span {
     width: 100%;
 }
 
-.hero .canvas {
-    margin-left: 10%;
-    width: 1400;
-    height: 800px;
-}
-
 /* designing title and tag line */
 .hero .hero-title {
     text-align: center;
@@ -761,7 +755,7 @@ body.loader .loader_website span {
     height: 250px;
     width: 800px;
     border: 1px solid #FAC100;
-    top: 40%
+    top: 65%
 }
 
 .hero .hero-title-play {
@@ -778,6 +772,25 @@ body.loader .loader_website span {
     width: 800px;
     border: 1px solid #FAC100;
     top: 40%
+}
+
+.content-canvas {
+    position: relative;
+}
+
+.opciones-canvas {
+    position: absolute;
+    display: flex;
+}
+
+.timer {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .jugador-seleccion {
