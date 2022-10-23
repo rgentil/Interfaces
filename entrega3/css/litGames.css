@@ -791,8 +791,11 @@ body.loader .loader_website span {
 }
 
 .labelexpanded input:checked+.radio-btns {
-    background-color: #FAC100;
-    color: #FAC100;
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
+.labelexpanded input:hover+.radio-btns {
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
 }
 
 .radio-btns {
@@ -801,13 +804,13 @@ body.loader .loader_website span {
     border-radius: 50%;
     position: relative;
     text-align: center;
-    box-shadow: 0 1px #c3c3c3;
+    box-shadow: 0 1px #000000;
     cursor: pointer;
-    background-color: #eaeaea;
+    background-color: #000000;
     float: left;
     margin-right: 15px;
     padding-top: 3px;
-    padding-right: 1px ;
+    padding-right: 1px;
 }
 
 .radio-btns>img {
@@ -824,11 +827,12 @@ body.loader .loader_website span {
     border-radius: 15px;
     width: 30%;
     padding-left: 10px;
+    color: #FAC100;
 }
 
 .div-btns-play {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
 }
 
 .div-btns-play>div {
@@ -843,6 +847,7 @@ body.loader .loader_website span {
     line-height: 43px;
     color: #C6C6C6;
     margin-top: 10px;
+    color: #FAC100;
 }
 
 .div-btns-play h2 {
