@@ -111,10 +111,6 @@ content {
     margin-right: 10px;
 }
 
-.burger:hover {
-    background: url("/img/burguer1.png")
-}
-
 a:-webkit-any-link {
     text-decoration: none;
 }

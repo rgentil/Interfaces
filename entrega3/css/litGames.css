@@ -111,10 +111,6 @@ content {
     margin-right: 10px;
 }
 
-.burger:hover {
-    background: url("/img/burguer1.png")
-}
-
 a:-webkit-any-link {
     text-decoration: none;
 }
@@ -776,6 +772,7 @@ body.loader .loader_website span {
 
 .content-canvas {
     position: relative;
+    font-family: 'Bahianita', sans-serif;
 }
 
 .opciones-canvas {
@@ -791,6 +788,30 @@ body.loader .loader_website span {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 60px;
+    font-style: normal;
+}
+
+.resultado-canvas {
+    position: absolute;
+    /*align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;*/
+    font-size: 60px;
+    font-style: normal;
+    display: none; 
+    top: 50px;
+    right: 500px;
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width: 30%;  
+    align-items: center;
+    justify-content: center;
+
 }
 
 .jugador-seleccion {
