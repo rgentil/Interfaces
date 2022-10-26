@@ -157,36 +157,42 @@ function iniciarPagina() {
         //Para dibujar el fondo
         ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
 
-        let f1 = new canvas_ficha(
-            nombre1,
-            1,
-            ctx,
-            100,
-            500,
-            imagenFicha1, `rgba(${155},${155},${0},${155})`);
-        f1.draw();
-        arreglo_fichas_j1[0] = f1;
+        for (let i = 0; i < 3; i++) {
+            let f1 = new canvas_ficha(
+                nombre1,
+                'f1' + i + 1,
+                ctx,
+                100,
+                500 - (i * 10),
+                imagenFicha1, `rgba(${155},${155},${0},${155})`);
+            f1.draw();
+            arreglo_fichas_j1[i] = f1;
+        }
 
-        let f2 = new canvas_ficha(
-            nombre2,
-            2,
-            ctx,
-            900,
-            500,
-            imagenFicha2, `rgba(${100},${0},${100},${100})`);
-        f2.draw();
-        arreglo_fichas_j2[0] = f2;
+        for (let i = 0; i < 3; i++) {
+            let f2 = new canvas_ficha(
+                nombre2,
+                'f2' + i + 1,
+                ctx,
+                900,
+                500 - (i * 10),
+                imagenFicha2, `rgba(${100},${0},${100},${100})`);
+            f2.draw();
+            arreglo_fichas_j2[i] = f2;
+        }
 
-        let b = new canvas_box(
-            "",
-            ctx,
-            450,
-            600,
-            imagenBox,
-            65,
-            65, `rgba(${0},${200},${200},${200})`);
-        b.draw();
-        arreglo_box[0] = b;
+        for (let i = 0; i < 3; i++) {
+            let b = new canvas_box(
+                "",
+                ctx,
+                350 + (i*68),
+                600,
+                imagenBox,
+                65,
+                65, `rgba(${0},${200},${200},${200})`);
+            b.draw();
+            arreglo_box[i] = b;
+        }
     }
 
     //Eventos del mouse sobre el canvas
@@ -253,6 +259,7 @@ function iniciarPagina() {
             let mousePos = getMousePos(event);
             for (let i = 0; i < arreglo_box.length; i++) {
                 if (arreglo_box[i].getPosCanvasX() < mousePos.x
+                    && !arreglo_box[i].isOcupado()
                     && (arreglo_box[i].getLadoX() + arreglo_box[i].getPosCanvasX() > mousePos.x)
                     && arreglo_box[i].getPosCanvasY() < mousePos.y
                     && (arreglo_box[i].getLadoY() + arreglo_box[i].getPosCanvasY() > mousePos.y)
@@ -293,12 +300,19 @@ function iniciarPagina() {
     }
 
     function canvasActualizar() {
-        //Para dibujar el fondo
         ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
-        arreglo_box[0].draw();
+
+        for (let i = 0; i < arreglo_box.length; i++) {
+            arreglo_box[i].draw();
+        }
+
         for (let i = 0; i < arreglo_fichas_j1.length; i++) {
             arreglo_fichas_j1[i].draw();
         }
+
+        for (let i = 0; i < arreglo_fichas_j2.length; i++) {
+            arreglo_fichas_j2[i].draw();
+        }        
     }
 
     //Funcion encargada de controlar el tiempo de partida
