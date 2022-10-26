@@ -23,11 +23,15 @@ class canvas_ficha extends canvas_objeto {
     }
 
     draw() {
+        this.context.save();
         this.context.beginPath();
-        this.context.fillStyle = this.color;
+        //this.context.fillStyle = this.color;
         this.context.arc(this.posCanvasX, this.posCanvasY, this.radio, this.anguloDesde, this.anguloHasta);
-        this.context.fill();
+        //this.context.fill();
         this.context.closePath();
+        this.context.clip();
+        this.context.drawImage(this.imagen, this.posCanvasX-30, this.posCanvasY-30, 60, 60);
+        this.context.restore();
     }
 
     getRadio() {

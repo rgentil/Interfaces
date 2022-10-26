@@ -8,13 +8,13 @@ function iniciarPagina() {
     const CANVAS_WIDTH = 1000;
     const CANVAS_HEIGHT = 839;
     const CANVAS_IMG_BACKGROUND = "./img/map.jpg";
-    const CANVAS_IMG_BOX = "./img/CGold.jpg";
+    const CANVAS_IMG_BOX = "./img/cbox.png";
 
     let imageFondo = new Image();
     let imagenFicha1 = new Image();
     let imagenFicha2 = new Image();
     let imagenBox = new Image();
-    imagenBox.src = CANVAS_IMG_BOX
+    imagenBox.src = CANVAS_IMG_BOX;
     let dificultad;
     let turno_jugador_1 = true;
     let nombre1;
@@ -183,8 +183,8 @@ function iniciarPagina() {
             450,
             600,
             imagenBox,
-            80,
-            80, `rgba(${0},${200},${200},${200})`);
+            65,
+            65, `rgba(${0},${200},${200},${200})`);
         b.draw();
         arreglo_box[0] = b;
     }
@@ -251,27 +251,28 @@ function iniciarPagina() {
         console.log('El raton NO se esta presionando');
         if (ficha_j1_seleccionada != null) {
             let mousePos = getMousePos(event);
-            for (var i = 0; i < arreglo_box.length; i++) {
+            for (let i = 0; i < arreglo_box.length; i++) {
                 if (arreglo_box[i].getPosCanvasX() < mousePos.x
                     && (arreglo_box[i].getLadoX() + arreglo_box[i].getPosCanvasX() > mousePos.x)
                     && arreglo_box[i].getPosCanvasY() < mousePos.y
                     && (arreglo_box[i].getLadoY() + arreglo_box[i].getPosCanvasY() > mousePos.y)
                 ) {
+                    arreglo_box[i].setOcupado(true);
                     boxSeleccionado = arreglo_box[i];
                 }
-                for (let i = 0; i < arreglo_fichas_j1.length; i++) {
+                for (let y = 0; y < arreglo_fichas_j1.length; y++) {
                     if (boxSeleccionado != null
-                        && ficha_j1_seleccionada.getId() === arreglo_fichas_j1[i].getId()) {
+                        && ficha_j1_seleccionada.getId() === arreglo_fichas_j1[y].getId()) {
                         let posNueva = {
                             x: boxSeleccionado.getPosCanvasX() + (boxSeleccionado.getLadoX() / 2),
-                            y: boxSeleccionado.getPosCanvasY() + ((boxSeleccionado.getLadoY() - arreglo_fichas_j1[i].getRadio()))
+                            y: boxSeleccionado.getPosCanvasY() - 2 + ((boxSeleccionado.getLadoY() - arreglo_fichas_j1[y].getRadio()))
                         }
-                        arreglo_fichas_j1[i].setHabilitada(false);
-                        arreglo_fichas_j1[i].setPosicionFinal(posNueva.x, posNueva.y);
+                        arreglo_fichas_j1[y].setHabilitada(false);
+                        arreglo_fichas_j1[y].setPosicionFinal(posNueva.x, posNueva.y);
                     }
                     if (boxSeleccionado == null
-                        && ficha_j1_seleccionada.getId() === arreglo_fichas_j1[i].getId()) {
-                        arreglo_fichas_j1[i].setPosicionInicial();
+                        && ficha_j1_seleccionada.getId() === arreglo_fichas_j1[y].getId()) {
+                        arreglo_fichas_j1[y].setPosicionInicial();
                     }
                 }
             }
