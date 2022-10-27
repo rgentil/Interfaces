@@ -773,31 +773,36 @@ body.loader .loader_website span {
 .content-canvas {
     position: relative;
     font-family: 'Bahianita', sans-serif;
-    margin-left: 250px;
+    margin-left: 300px;
 }
 
 .btn-canvas {
     position: absolute;
     display: flex;
-    width: 300px;
-    bottom: 25px;
-    left: 370px;
+    width: 220px;
+    top: 10px;
+    left: 480px;
     justify-content: space-between;
+}
+
+#btn-reiniciar, #btn-game-out {
+    width: 100px;
+    height: 40px;
 }
 
 .timer-canvas {
     position: absolute;
     background-color: red;
-    width: 150px;
-    height: 50px;
+    width: 100px;
+    height: 40px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 60px;
+    font-size: 40px;
     font-style: normal;
-    top: 15px;
-    left: 450px;
+    top: 10px;
+    left: 325px;
 
 }
 
@@ -813,7 +818,7 @@ body.loader .loader_website span {
     font-style: normal;
     display: none; 
     top: 100px;
-    left: 330px;
+    left: 220px;
     height: 60px;
     background: #424242;
     border-radius: 15px;

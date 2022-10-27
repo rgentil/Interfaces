@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", iniciarPagina);
 function iniciarPagina() {
 
     const TIEMPO_DE_JUEGO = 300;
-    const CANVAS_WIDTH = 1000;
-    const CANVAS_HEIGHT = 839;
-    const CANVAS_IMG_BACKGROUND = "./img/map.jpg";
+    const CANVAS_WIDTH = 725;
+    const CANVAS_HEIGHT = 607;
+    const CANVAS_IMG_BACKGROUND = "./img/map.png";
     const CANVAS_IMG_BOX = "./img/cbox.png";
 
     let imageFondo = new Image();
@@ -38,10 +38,6 @@ function iniciarPagina() {
     let inicioY = 0;
 
     imageFondo.src = CANVAS_IMG_BACKGROUND;
-    /*imageFondo.onload = function () {
-        //Imagen de fondo
-        ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
-    }*/
 
     let divHeroGame = document.querySelector("#div-hero-game");
     divHeroGame.style.display = 'block';
@@ -134,7 +130,6 @@ function iniciarPagina() {
         //Nombre
         nombre2 = document.getElementById('text-jugador2').value;
         //Ficha
-        ficha2;
         let fichas2 = document.getElementsByName('targetgroup2');
         for (let ficha of fichas2) {
             if (ficha.checked) {
@@ -157,36 +152,36 @@ function iniciarPagina() {
         //Para dibujar el fondo
         ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             let f1 = new canvas_ficha(
                 nombre1,
                 'f1' + i + 1,
                 ctx,
-                100,
-                500 - (i * 10),
+                35,
+                300 - (i * 10),
                 imagenFicha1, `rgba(${155},${155},${0},${155})`);
             f1.draw();
             arreglo_fichas_j1[i] = f1;
         }
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             let f2 = new canvas_ficha(
                 nombre2,
                 'f2' + i + 1,
                 ctx,
-                900,
-                500 - (i * 10),
+                690,
+                300 - (i * 10),
                 imagenFicha2, `rgba(${100},${0},${100},${100})`);
             f2.draw();
             arreglo_fichas_j2[i] = f2;
         }
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             let b = new canvas_box(
                 "",
                 ctx,
-                350 + (i*68),
-                600,
+                250 + (i * 68),
+                535,
                 imagenBox,
                 65,
                 65, `rgba(${0},${200},${200},${200})`);
@@ -200,21 +195,20 @@ function iniciarPagina() {
     //Click del mouse sostenido
     //Accion de hacer click y presionar
     canvas.addEventListener('mousedown', function (event) {
-        console.log('El raton se esta presionando');
         let mousePos = getMousePos(event);
-        console.log('event.clientX: ' + event.clientX);
-        console.log('event.clientY: ' + event.clientY);
-        console.log('mousePos.x: ' + mousePos.x);
-        console.log('mousePos.y: ' + mousePos.y);
+        //console.log('event.clientX: ' + event.clientX);
+        //console.log('event.clientY: ' + event.clientY);
+        //console.log('mousePos.x: ' + mousePos.x);
+        //console.log('mousePos.y: ' + mousePos.y);
 
         for (var i = 0; i < arreglo_fichas_j1.length; i++) {
             let x = mousePos.x;
             let y = mousePos.y;
 
-            console.log('x: ' + x);
-            console.log('y: ' + y);
-            console.log('getPosCanvasX(): ' + arreglo_fichas_j1[i].getPosCanvasX());
-            console.log('getPosCanvasY(): ' + arreglo_fichas_j1[i].getPosCanvasY());
+            //console.log('x: ' + x);
+            //console.log('y: ' + y);
+            //console.log('getPosCanvasX(): ' + arreglo_fichas_j1[i].getPosCanvasX());
+            //console.log('getPosCanvasY(): ' + arreglo_fichas_j1[i].getPosCanvasY());
             let dx = Math.abs(x - arreglo_fichas_j1[i].getPosCanvasX());
             let dy = Math.abs(y - arreglo_fichas_j1[i].getPosCanvasY());
             console.log('dx: ' + dx);
@@ -242,8 +236,8 @@ function iniciarPagina() {
             console.log('inicioY: ' + inicioY);
             console.log('event.clientY: ' + event.clientY);
             ficha_j1_seleccionada.setPosicionCanvas(
-                event.clientX - inicioX - 150,
-                event.clientY - inicioY + 500,
+                event.clientX - inicioX - 270,
+                event.clientY - inicioY + 300,
 
             )
             console.log('Ficha en posicion x ' + ficha_j1_seleccionada.getPosCanvasX());
@@ -294,7 +288,7 @@ function iniciarPagina() {
         console.log('canvas.offsetLeft: ' + canvas.offsetLeft);
         console.log('canvas.offsetTop: ' + canvas.offsetTop);
         return {
-            x: Math.round(event.clientX - canvas.offsetLeft) - 250,
+            x: Math.round(event.clientX - canvas.offsetLeft) - 300,
             y: Math.round(event.clientY - canvas.offsetTop)
         }
     }
@@ -312,7 +306,7 @@ function iniciarPagina() {
 
         for (let i = 0; i < arreglo_fichas_j2.length; i++) {
             arreglo_fichas_j2[i].draw();
-        }        
+        }
     }
 
     //Funcion encargada de controlar el tiempo de partida
