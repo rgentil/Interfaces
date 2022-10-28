@@ -104,6 +104,17 @@ function iniciarPagina() {
         canvas.width = CANVAS_WIDTH;
         canvas.height = CANVAS_HEIGHT;
 
+        //Ayuda para ver por donde esta el mouse
+        var output = document.getElementById("output");
+        canvas.addEventListener("mousemove", function (evt) {
+            var mousePos = getMousePos(evt);
+            marcarCoords(output, mousePos.x, mousePos.y)
+        }, false);
+
+        canvas.addEventListener("mouseout", function (evt) {
+            limpiarCoords(output);
+        }, false);
+
         //Opciones seleccionadas
         //Dificultad
         let dificultades = document.getElementsByName('dificultad');
@@ -152,7 +163,7 @@ function iniciarPagina() {
         //Para dibujar el fondo
         ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
 
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < 3; i++) {
             let f1 = new canvas_ficha(
                 nombre1,
                 'f1' + i + 1,
@@ -164,7 +175,7 @@ function iniciarPagina() {
             arreglo_fichas_j1[i] = f1;
         }
 
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < 3; i++) {
             let f2 = new canvas_ficha(
                 nombre2,
                 'f2' + i + 1,
@@ -176,7 +187,7 @@ function iniciarPagina() {
             arreglo_fichas_j2[i] = f2;
         }
 
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < 3; i++) {
             let b = new canvas_box(
                 "",
                 ctx,
@@ -195,33 +206,17 @@ function iniciarPagina() {
     //Click del mouse sostenido
     //Accion de hacer click y presionar
     canvas.addEventListener('mousedown', function (event) {
-        let mousePos = getMousePos(event);
-        //console.log('event.clientX: ' + event.clientX);
-        //console.log('event.clientY: ' + event.clientY);
-        //console.log('mousePos.x: ' + mousePos.x);
-        //console.log('mousePos.y: ' + mousePos.y);
-
+        let mousePos = getMousePos(event)
         for (var i = 0; i < arreglo_fichas_j1.length; i++) {
             let x = mousePos.x;
             let y = mousePos.y;
-
-            //console.log('x: ' + x);
-            //console.log('y: ' + y);
-            //console.log('getPosCanvasX(): ' + arreglo_fichas_j1[i].getPosCanvasX());
-            //console.log('getPosCanvasY(): ' + arreglo_fichas_j1[i].getPosCanvasY());
             let dx = Math.abs(x - arreglo_fichas_j1[i].getPosCanvasX());
             let dy = Math.abs(y - arreglo_fichas_j1[i].getPosCanvasY());
-            console.log('dx: ' + dx);
-            console.log('dy: ' + dy);
             let distancia = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
-            console.log('distancia: ' + distancia);
-            console.log('radio: ' + arreglo_fichas_j1[i].getRadio());
             if (distancia <= arreglo_fichas_j1[i].getRadio() && arreglo_fichas_j1[i].isHabilitada()) {
                 ficha_j1_seleccionada = arreglo_fichas_j1[i];
-                inicioX = x; //mousePos.x - arreglo_fichas_j1[i].getPosCanvasX();
-                inicioY = y;// mousePos.y - arreglo_fichas_j1[i].getPosCanvasY();
-                console.log('inicioX: ' + inicioX);
-                console.log('inicioY: ' + inicioY);
+                inicioX = arreglo_fichas_j1[i].getPosCanvasX();
+                inicioY = arreglo_fichas_j1[i].getPosCanvasY();
                 break;
             }
         }
@@ -229,19 +224,12 @@ function iniciarPagina() {
 
     //Movimiento del mouse con el click apretado
     canvas.addEventListener('mousemove', function (event) {
+        let mousePos = getMousePos(event);
         if (ficha_j1_seleccionada != null) {
-            console.log('Moviendose la ficha ' + ficha_j1_seleccionada.getId());
-            console.log('inicioX: ' + inicioX);
-            console.log('event.clientX: ' + event.clientX);
-            console.log('inicioY: ' + inicioY);
-            console.log('event.clientY: ' + event.clientY);
             ficha_j1_seleccionada.setPosicionCanvas(
-                event.clientX - inicioX - 270,
-                event.clientY - inicioY + 300,
-
+                mousePos.x,
+                mousePos.y
             )
-            console.log('Ficha en posicion x ' + ficha_j1_seleccionada.getPosCanvasX());
-            console.log('Ficha en posicion y ' + ficha_j1_seleccionada.getPosCanvasY());
         }
         canvasActualizar();
     });
@@ -285,11 +273,10 @@ function iniciarPagina() {
 
     //Detectar posicion del mouse
     function getMousePos(event) {
-        console.log('canvas.offsetLeft: ' + canvas.offsetLeft);
-        console.log('canvas.offsetTop: ' + canvas.offsetTop);
-        return {
-            x: Math.round(event.clientX - canvas.offsetLeft) - 300,
-            y: Math.round(event.clientY - canvas.offsetTop)
+        let ClientRect = canvas.getBoundingClientRect();
+        return { //objeto
+            x: Math.round(event.clientX - ClientRect.left),
+            y: Math.round(event.clientY - ClientRect.top)
         }
     }
 
@@ -327,4 +314,24 @@ function iniciarPagina() {
             resultadoCanvas.innerHTML = 'Empate';
         }
     }
+
+    //Funciones para ver las coordonedas de la posicion del mouse
+    function marcarCoords(output, x, y) {
+        output.innerHTML = ("x: " + x + ", y: " + y);
+        output.style.top = (y + 10) + "px";
+        output.style.left = (x + 10) + "px";
+        output.style.backgroundColor = "#FFF";
+        output.style.border = "1px solid #d9d9d9"
+        canvas.style.cursor = "pointer";
+    }
+
+    function limpiarCoords(output) {
+        output.innerHTML = "";
+        output.style.top = 0 + "px";
+        output.style.left = 0 + "px";
+        output.style.backgroundColor = "transparent"
+        output.style.border = "none";
+        canvas.style.cursor = "default";
+    }
+
 }

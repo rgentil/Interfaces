@@ -773,7 +773,10 @@ body.loader .loader_website span {
 .content-canvas {
     position: relative;
     font-family: 'Bahianita', sans-serif;
-    margin-left: 300px;
+    position: relative;
+    width: 725px;
+    height: 607px;
+    margin: 0 auto 30px auto;
 }
 
 .btn-canvas {
@@ -785,7 +788,8 @@ body.loader .loader_website span {
     justify-content: space-between;
 }
 
-#btn-reiniciar, #btn-game-out {
+#btn-reiniciar,
+#btn-game-out {
     width: 100px;
     height: 40px;
 }
@@ -816,13 +820,13 @@ body.loader .loader_website span {
     left: 0;*/
     font-size: 60px;
     font-style: normal;
-    display: none; 
+    display: none;
     top: 100px;
     left: 220px;
     height: 60px;
     background: #424242;
     border-radius: 15px;
-    width: 30%;  
+    width: 30%;
     align-items: center;
     justify-content: center;
 
