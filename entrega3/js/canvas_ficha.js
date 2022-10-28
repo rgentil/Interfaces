@@ -1,10 +1,10 @@
 class canvas_ficha extends canvas_objeto {
     constructor(jugador, id, context, posInicialX, posInicialY, imagen, color) {
         super(jugador, context, posInicialX, posInicialY, imagen, color);
-        this.radio = 30//Math.round(Math.random() * 100);
+        this.radio = 25//Math.round(Math.random() * 100);
         this.anguloDesde = 0;
         this.anguloHasta = 2 * Math.PI;
-        this.habilitada = true;
+        this.habilitada = false;
         this.id = id;
     }
 
@@ -30,7 +30,7 @@ class canvas_ficha extends canvas_objeto {
         //this.context.fill();
         this.context.closePath();
         this.context.clip();
-        this.context.drawImage(this.imagen, this.posCanvasX-30, this.posCanvasY-30, 60, 60);
+        this.context.drawImage(this.imagen, this.posCanvasX-25, this.posCanvasY-25, 50, 50);
         this.context.restore();
     }
 
