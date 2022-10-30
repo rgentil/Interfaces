@@ -24,6 +24,8 @@ function iniciarPagina() {
     let nombre2;
     let ficha2;
 
+    let fin_del_juego = false;
+
     let timer = TIEMPO_DE_JUEGO;
     let timerId;
 
@@ -90,8 +92,10 @@ function iniciarPagina() {
         ficha_j1_seleccionada = null;
         ficha_j2_seleccionada = null;
         boxSeleccionado = null;
+        fin_del_juego = false;
         inicioX = 0;
         inicioY = 0;
+        fin_del_juego = false;
         clearTimeout(timerId);
         canvasDraw();
         timer = TIEMPO_DE_JUEGO;
@@ -108,6 +112,16 @@ function iniciarPagina() {
         divHeroGame.style.display = 'none';
         contentCanvas.style.display = 'block';
         canvas.style.display = 'block';
+
+        resultadoCanvas.style.display = 'none';
+        turno_jugador_1 = true;
+        ficha_j1_seleccionada = null;
+        ficha_j2_seleccionada = null;
+        boxSeleccionado = null;
+        fin_del_juego = false;
+        inicioX = 0;
+        inicioY = 0;
+        fin_del_juego = false;
 
         canvas.width = CANVAS_WIDTH;
         canvas.height = CANVAS_HEIGHT;
@@ -247,33 +261,35 @@ function iniciarPagina() {
     //Click del mouse sostenido
     //Accion de hacer click 
     canvas.addEventListener('mousedown', function (event) {
-        let mousePos = getMousePos(event);
-        if (turno_jugador_1) {
-            for (let i = 0; i < arreglo_fichas_j1.length; i++) {
-                let x = mousePos.x;
-                let y = mousePos.y;
-                let dx = Math.abs(x - arreglo_fichas_j1[i].getPosCanvasX());
-                let dy = Math.abs(y - arreglo_fichas_j1[i].getPosCanvasY());
-                let distancia = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
-                if (distancia <= arreglo_fichas_j1[i].getRadio() && arreglo_fichas_j1[i].isHabilitada()) {
-                    ficha_j1_seleccionada = arreglo_fichas_j1[i];
-                    inicioX = arreglo_fichas_j1[i].getPosCanvasX();
-                    inicioY = arreglo_fichas_j1[i].getPosCanvasY();
-                    break;
+        if (!fin_del_juego) {
+            let mousePos = getMousePos(event);
+            if (turno_jugador_1) {
+                for (let i = 0; i < arreglo_fichas_j1.length; i++) {
+                    let x = mousePos.x;
+                    let y = mousePos.y;
+                    let dx = Math.abs(x - arreglo_fichas_j1[i].getPosCanvasX());
+                    let dy = Math.abs(y - arreglo_fichas_j1[i].getPosCanvasY());
+                    let distancia = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+                    if (distancia <= arreglo_fichas_j1[i].getRadio() && arreglo_fichas_j1[i].isHabilitada()) {
+                        ficha_j1_seleccionada = arreglo_fichas_j1[i];
+                        inicioX = arreglo_fichas_j1[i].getPosCanvasX();
+                        inicioY = arreglo_fichas_j1[i].getPosCanvasY();
+                        break;
+                    }
                 }
-            }
-        } else {//Juega jugador dos.
-            for (let i = 0; i < arreglo_fichas_j2.length; i++) {
-                let x = mousePos.x;
-                let y = mousePos.y;
-                let dx = Math.abs(x - arreglo_fichas_j2[i].getPosCanvasX());
-                let dy = Math.abs(y - arreglo_fichas_j2[i].getPosCanvasY());
-                let distancia = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
-                if (distancia <= arreglo_fichas_j2[i].getRadio() && arreglo_fichas_j2[i].isHabilitada()) {
-                    ficha_j2_seleccionada = arreglo_fichas_j2[i];
-                    inicioX = arreglo_fichas_j2[i].getPosCanvasX();
-                    inicioY = arreglo_fichas_j2[i].getPosCanvasY();
-                    break;
+            } else {//Juega jugador dos.
+                for (let i = 0; i < arreglo_fichas_j2.length; i++) {
+                    let x = mousePos.x;
+                    let y = mousePos.y;
+                    let dx = Math.abs(x - arreglo_fichas_j2[i].getPosCanvasX());
+                    let dy = Math.abs(y - arreglo_fichas_j2[i].getPosCanvasY());
+                    let distancia = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+                    if (distancia <= arreglo_fichas_j2[i].getRadio() && arreglo_fichas_j2[i].isHabilitada()) {
+                        ficha_j2_seleccionada = arreglo_fichas_j2[i];
+                        inicioX = arreglo_fichas_j2[i].getPosCanvasX();
+                        inicioY = arreglo_fichas_j2[i].getPosCanvasY();
+                        break;
+                    }
                 }
             }
         }
@@ -422,6 +438,7 @@ function iniciarPagina() {
             clearTimeout(timerId);
             resultadoCanvas.style.display = 'flex';
             resultadoCanvas.innerHTML = 'Empate';
+            fin_del_juego = true;
         }
     }
 
