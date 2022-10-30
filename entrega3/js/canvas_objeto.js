@@ -2,8 +2,8 @@ class canvas_objeto {
     constructor(jugador, context, posInicialX, posInicialY, imagen, color) {
         this.jugador = jugador;
         this.context = context;
-        this.posInicialX = posInicialX//Math.round(Math.random() * canvas.width);
-        this.posInicialY = posInicialY//Math.round(Math.random() * canvas.height);
+        this.posInicialX = posInicialX;//Math.round(Math.random() * canvas.width);
+        this.posInicialY = posInicialY;//Math.round(Math.random() * canvas.height);
         this.posCanvasX = this.posInicialX;
         this.posCanvasY = this.posInicialY;
         this.imagen = imagen;
@@ -13,7 +13,7 @@ class canvas_objeto {
     //Posicion inicial de la ficha
     setPosicionInicial(x, y) {
         this.posInicialX = x;
-        this.posInicialY = y
+        this.posInicialY = y;
     }
 
     getPosInicialX() {
@@ -27,7 +27,7 @@ class canvas_objeto {
     //Posicion actual del objeto en la pagina
     setPosicionCanvas(x, y) {
         this.posCanvasX = x;
-        this.posCanvasY = y
+        this.posCanvasY = y;
     }
 
     getPosCanvasX() {

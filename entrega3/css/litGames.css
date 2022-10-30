@@ -823,7 +823,22 @@ body.loader .loader_website span {
     width: 90%;
     align-items: center;
     justify-content: center;
+}
 
+.turno-canvas {
+    position: absolute;
+    font-size: 40px;
+    font-style: normal;
+    display: flex;
+    top: 10px;
+    left: 15px;
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width:40%;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
 }
 
 .jugador-seleccion {

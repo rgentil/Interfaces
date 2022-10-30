@@ -8,9 +8,6 @@ class canvas_box extends canvas_objeto {
 
     draw() {
         this.context.beginPath();
-        //this.context.fillStyle = this.color;
-        //this.context.lineWidth = 2;
-        //this.context.strokeStyle = '#A1C25E';
         this.context.fillRect(this.posCanvasX, this.posCanvasY, this.ladoX, this.ladoY);
         this.context.closePath();
         this.context.drawImage(this.imagen,this.posCanvasX,this.posCanvasY,this.ladoX,this.ladoY);

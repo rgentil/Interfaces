@@ -43,6 +43,29 @@ function iniciarPagina() {
 
     imageFondo.src = CANVAS_IMG_BACKGROUND;
 
+    //Controla que no se pueda seleccionar la misma ficha
+    let ff11 = document.getElementsByName('targetgroup1');
+    ff11.forEach(f => f.addEventListener("click", () => {
+        let ff22 = document.getElementsByName('targetgroup2');
+        for (let f22 of ff22) {
+            f22.disabled = false;
+            if (f22.value === f.value) {
+                f22.disabled = true;
+            }
+        }
+    }));
+
+    let ff22 = document.getElementsByName('targetgroup2');
+    ff22.forEach(f => f.addEventListener("click", () => {
+        let ff11 = document.getElementsByName('targetgroup1');
+        for (let f11 of ff11) {
+            f11.disabled = false;
+            if (f11.value === f.value) {
+                f11.disabled = true;
+            }
+        }
+    }));
+
     let divHeroGame = document.querySelector("#div-hero-game");
     divHeroGame.style.display = 'block';
 
@@ -71,7 +94,7 @@ function iniciarPagina() {
         heroTitleJugarOpciones.style.display = 'none';
     });
 
-    //Boton salir
+    //Boton salir del juego
     let btnGameOut = document.querySelector("#btn-game-out");
     btnGameOut.addEventListener("click", function (event) {
         divHeroGame.style.display = 'block';
@@ -79,10 +102,14 @@ function iniciarPagina() {
         canvas.style.display = 'none';
         heroTitleJugar.style.display = 'block';
         heroTitleJugarOpciones.style.display = 'none';
+        initVariables();
     });
 
-    //Div en donde se va a mostrar el resultado del juego.
+    //Resultado final del juego. Ya sea porque haya un ganador o se haya terminado el tiempo de juego.
     let resultadoCanvas = document.querySelector(".resultado-canvas");
+
+    //Muestro a quien le toca jugar en el turno actual. Al inicio jugador de la izquierda por defecto
+    let turnoCanvas = document.querySelector(".turno-canvas");
 
     //Boton reiniciar juego. Reinicia la partida
     let btnReiniciar = document.querySelector("#btn-reiniciar");
@@ -90,9 +117,14 @@ function iniciarPagina() {
         initVariables();
     });
 
+    //Inicializa variables al reiniciar o salir del juego.
     function initVariables() {
         resultadoCanvas.style.display = 'none';
         turno_jugador_1 = true;
+        turnoCanvas.innerHTML = 'Juega ' + nombre1;
+        arreglo_fichas_j1 = [];
+        arreglo_fichas_j2 = [];
+        matriz_box = [];
         ficha_j1_seleccionada = null;
         ficha_j2_seleccionada = null;
         boxSeleccionado = null;
@@ -119,6 +151,8 @@ function iniciarPagina() {
         canvas.height = CANVAS_HEIGHT;
 
         //Ayuda para ver por donde esta el mouse
+        //Descomentar para ver coordenadas actaules del mouse
+        /*
         var output = document.getElementById("output");
         canvas.addEventListener("mousemove", function (evt) {
             var mousePos = getMousePos(evt);
@@ -128,6 +162,7 @@ function iniciarPagina() {
         canvas.addEventListener("mouseout", function (evt) {
             limpiarCoords(output);
         }, false);
+        */
 
         //Opciones seleccionadas
         //Dificultad
@@ -176,7 +211,8 @@ function iniciarPagina() {
         //Para dibujar el fondo
         ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
 
-        for (let i = 0; i < 45; i++) {
+        let total_fichas = ((filas * columnas) / 2) + 1;
+        for (let i = 0; i < total_fichas; i++) {
             let f1 = new canvas_ficha(
                 nombre1,
                 'f1' + i + 1,
@@ -185,13 +221,13 @@ function iniciarPagina() {
                 400 - (i * 5),
                 imagenFicha1, `rgba(${155},${155},${0},${155})`);
             f1.draw();
-            if (i === 44) {
+            if (i === total_fichas - 1) {
                 f1.setHabilitada(true);
             }
             arreglo_fichas_j1[i] = f1;
         }
 
-        for (let i = 0; i < 45; i++) {
+        for (let i = 0; i < total_fichas; i++) {
             let f2 = new canvas_ficha(
                 nombre2,
                 'f2' + i + 1,
@@ -200,7 +236,7 @@ function iniciarPagina() {
                 400 - (i * 5),
                 imagenFicha2, `rgba(${100},${0},${100},${100})`);
             f2.draw();
-            if (i === 44) {
+            if (i === total_fichas - 1) {
                 f2.setHabilitada(true);
             }
             arreglo_fichas_j2[i] = f2;
@@ -356,6 +392,7 @@ function iniciarPagina() {
                         arreglo_fichas_j1[y - 1].setHabilitada(true);
                         //Si coloca la ficha cambia de turno
                         turno_jugador_1 = !turno_jugador_1;
+                        turnoCanvas.innerHTML = 'Juega ' + nombre2;
 
                     } else {
                         //Vuelve al origen
@@ -387,6 +424,7 @@ function iniciarPagina() {
                             arreglo_fichas_j2[y - 1].setHabilitada(true);
                             //Si coloca la ficha cambia de turno
                             turno_jugador_1 = !turno_jugador_1;
+                            turnoCanvas.innerHTML = 'Juega ' + nombre1;
                         } else {
                             //Vuelve al origen
                             if (boxSeleccionado == null
@@ -404,6 +442,7 @@ function iniciarPagina() {
         canvasActualizar();
     });
 
+    //Luego de insertar una ficha valida si hay un ganador.
     function validarJugada(jugador, cInicial, fInicial) {
         let contador = 0;
         //Valido por columnad desde una posicion inicial hacia la izq y luego hacia la derecha
@@ -499,7 +538,6 @@ function iniciarPagina() {
                 break;
             }
         }
-
         cDiagonal = cInicial + 1;
         fDiagonal = fInicial + 1;
         while (cDiagonal <= columnas && fDiagonal <= filas && !fin_del_juego) {
@@ -514,9 +552,9 @@ function iniciarPagina() {
                 break;
             }
         }
-
     }
 
+    //Acciones finales del juego.
     function finalizarJuego(jugador) {
         clearTimeout(timerId);
         resultadoCanvas.style.display = 'flex';
@@ -524,28 +562,24 @@ function iniciarPagina() {
         fin_del_juego = true;
     }
 
-    //Detectar posicion del mouse
-    function getMousePos(event) {
-        let ClientRect = canvas.getBoundingClientRect();
-        return { //objeto
-            x: Math.round(event.clientX - ClientRect.left),
-            y: Math.round(event.clientY - ClientRect.top)
-        }
-    }
-
+    //Actualiza el canvas
     function canvasActualizar() {
+        //Fondo
         ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
 
+        //Tablero
         for (let i = columnas; i >= 0; i--) {
             for (let j = filas; j >= 0; j--) {
                 matriz_box[i][j].draw();
             }
         }
 
+        //Fichas del jugador 1
         for (let i = 0; i < arreglo_fichas_j1.length; i++) {
             arreglo_fichas_j1[i].draw();
         }
 
+        //Fichas del jugador 2
         for (let i = 0; i < arreglo_fichas_j2.length; i++) {
             arreglo_fichas_j2[i].draw();
         }
@@ -571,7 +605,18 @@ function iniciarPagina() {
         }
     }
 
+    //Detectar posicion del mouse
+    function getMousePos(event) {
+        let ClientRect = canvas.getBoundingClientRect();
+        return { //objeto
+            x: Math.round(event.clientX - ClientRect.left),
+            y: Math.round(event.clientY - ClientRect.top)
+        }
+    }
+
     //Funciones para ver las coordonedas de la posicion del mouse
+    //Habiltar para hacer correcciones viendo la posicion actual del mouse sobre el canvas
+    /*
     function marcarCoords(output, x, y) {
         output.innerHTML = ("x: " + x + ", y: " + y);
         output.style.top = (y + 10) + "px";
@@ -589,5 +634,6 @@ function iniciarPagina() {
         output.style.border = "none";
         canvas.style.cursor = "default";
     }
+    */
 
 }
