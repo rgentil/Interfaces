@@ -32,4 +32,8 @@ class canvas_box extends canvas_objeto {
         this.ocupado = valor;
     }
 
+    setJugador(nombre) {
+        this.jugador = nombre;
+    }
+
 }

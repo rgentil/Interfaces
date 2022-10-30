@@ -87,6 +87,10 @@ function iniciarPagina() {
     //Boton reiniciar juego. Reinicia la partida
     let btnReiniciar = document.querySelector("#btn-reiniciar");
     btnReiniciar.addEventListener("click", function () {
+        initVariables();
+    });
+
+    function initVariables() {
         resultadoCanvas.style.display = 'none';
         turno_jugador_1 = true;
         ficha_j1_seleccionada = null;
@@ -95,13 +99,11 @@ function iniciarPagina() {
         fin_del_juego = false;
         inicioX = 0;
         inicioY = 0;
-        fin_del_juego = false;
-        clearTimeout(timerId);
         canvasDraw();
         timer = TIEMPO_DE_JUEGO;
         clearTimeout(timerId);
         decreaseTimer();
-    });
+    }
 
     //Se inicia el juego. Boton jugar.
     let btnPlayStart = document.querySelector("#btn-play-start");
@@ -112,16 +114,6 @@ function iniciarPagina() {
         divHeroGame.style.display = 'none';
         contentCanvas.style.display = 'block';
         canvas.style.display = 'block';
-
-        resultadoCanvas.style.display = 'none';
-        turno_jugador_1 = true;
-        ficha_j1_seleccionada = null;
-        ficha_j2_seleccionada = null;
-        boxSeleccionado = null;
-        fin_del_juego = false;
-        inicioX = 0;
-        inicioY = 0;
-        fin_del_juego = false;
 
         canvas.width = CANVAS_WIDTH;
         canvas.height = CANVAS_HEIGHT;
@@ -176,10 +168,7 @@ function iniciarPagina() {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        canvasDraw();
-        timer = TIEMPO_DE_JUEGO;
-        clearTimeout(timerId);
-        decreaseTimer();
+        initVariables();
     });
 
     //Funcion llamada para dibujar la pantalla al inicio de juego
@@ -318,6 +307,8 @@ function iniciarPagina() {
 
     //Click del mouse levanta
     canvas.addEventListener('mouseup', function (event) {
+        let validarPosX = -1;
+        let validarPosY = -1;
         if (ficha_j1_seleccionada != null || ficha_j2_seleccionada != null) {
             let mousePos = getMousePos(event);
             for (let i = columnas; i >= 0 && !boxSeleccionado; i--) {
@@ -331,7 +322,16 @@ function iniciarPagina() {
                         for (let fil = filas; fil >= 0 && !boxSeleccionado; fil--) {
                             if (!matriz_box[i][fil].isOcupado()) {
                                 matriz_box[i][fil].setOcupado(true);
+                                if (ficha_j1_seleccionada != null) {
+                                    matriz_box[i][fil].setJugador(ficha_j1_seleccionada.getJugador());
+                                } else {
+                                    if (ficha_j2_seleccionada != null) {
+                                        matriz_box[i][fil].setJugador(ficha_j2_seleccionada.getJugador());
+                                    }
+                                }
                                 boxSeleccionado = matriz_box[i][fil];
+                                validarPosX = i;
+                                validarPosY = fil;
                             }
                         }
                     }
@@ -346,12 +346,17 @@ function iniciarPagina() {
                             x: boxSeleccionado.getPosCanvasX() + (boxSeleccionado.getLadoX() / 2),
                             y: boxSeleccionado.getPosCanvasY() - 1 + ((boxSeleccionado.getLadoY() - arreglo_fichas_j1[y].getRadio()))
                         }//Si hay que colocar la ficha
+
+                        //Valida si hya un ganador
+                        validarJugada(boxSeleccionado.getJugador(), validarPosX, validarPosY);
+
                         arreglo_fichas_j1[y].setHabilitada(false);
                         arreglo_fichas_j1[y].setPosicionFinal(posNueva.x, posNueva.y);
                         //Habilita la siguinte ficha
                         arreglo_fichas_j1[y - 1].setHabilitada(true);
                         //Si coloca la ficha cambia de turno
                         turno_jugador_1 = !turno_jugador_1;
+
                     } else {
                         //Vuelve al origen
                         if (boxSeleccionado == null
@@ -372,6 +377,10 @@ function iniciarPagina() {
                                 x: boxSeleccionado.getPosCanvasX() + (boxSeleccionado.getLadoX() / 2),
                                 y: boxSeleccionado.getPosCanvasY() - 1 + ((boxSeleccionado.getLadoY() - arreglo_fichas_j2[y].getRadio()))
                             }//Si hay que colocar la ficha
+
+                            //Valida si hya un ganador
+                            validarJugada(boxSeleccionado.getJugador(), validarPosX, validarPosY);
+
                             arreglo_fichas_j2[y].setHabilitada(false);
                             arreglo_fichas_j2[y].setPosicionFinal(posNueva.x, posNueva.y);
                             //Habilita la siguinte ficha
@@ -394,6 +403,126 @@ function iniciarPagina() {
         boxSeleccionado = null;
         canvasActualizar();
     });
+
+    function validarJugada(jugador, cInicial, fInicial) {
+        let contador = 0;
+        //Valido por columnad desde una posicion inicial hacia la izq y luego hacia la derecha
+        for (let col = cInicial; col >= 0 && !fin_del_juego; col--) {
+            if (matriz_box[col][fInicial].getJugador() === jugador) {
+                contador++;
+                if (contador == dificultad) {
+                    finalizarJuego(jugador);
+                }
+            } else {
+                break;
+            }
+        }
+        for (let col = cInicial + 1; col <= columnas && !fin_del_juego; col++) {
+            if (matriz_box[col][fInicial].getJugador() === jugador) {
+                contador++;
+                if (contador == dificultad) {
+                    finalizarJuego(jugador);
+                }
+            } else {
+                break;
+            }
+        }
+
+        //Valido por filas hacia abajo y luego hacia arriba
+        contador = 0;
+        for (let fil = fInicial; fil >= 0 && !fin_del_juego; fil--) {
+            if (matriz_box[cInicial][fil].getJugador() === jugador) {
+                contador++;
+                if (contador == dificultad) {
+                    finalizarJuego(jugador);
+                }
+            } else {
+                break;
+            }
+        }
+        for (let fil = fInicial + 1; fil <= filas && !fin_del_juego; fil++) {
+            if (matriz_box[cInicial][fil].getJugador() === jugador) {
+                contador++;
+                if (contador == dificultad) {
+                    finalizarJuego(jugador);
+                }
+            } else {
+                break;
+            }
+        }
+
+        //Valido en diagonal 1
+        contador = 0;
+        let cDiagonal = cInicial;
+        let fDiagonal = fInicial;
+        while (cDiagonal <= columnas && fDiagonal >= 0 && !fin_del_juego) {
+            if (matriz_box[cDiagonal][fDiagonal].getJugador() === jugador) {
+                contador++;
+                if (contador == dificultad) {
+                    finalizarJuego(jugador);
+                }
+                cDiagonal++;
+                fDiagonal--;
+            } else {
+                break;
+            }
+        }
+
+        cDiagonal = cInicial - 1;
+        fDiagonal = fInicial + 1;
+        while (cDiagonal >= 0 && fDiagonal <= filas && !fin_del_juego) {
+            if (matriz_box[cDiagonal][fDiagonal].getJugador() === jugador) {
+                contador++;
+                if (contador == dificultad) {
+                    finalizarJuego(jugador);
+                }
+                cDiagonal--;
+                fDiagonal++;
+            } else {
+                break;
+            }
+        }
+
+        //Valido en diagonal 2
+        contador = 0;
+        cDiagonal = cInicial;
+        fDiagonal = fInicial;
+        while (cDiagonal >= 0 && fDiagonal >= 0 && !fin_del_juego) {
+            if (matriz_box[cDiagonal][fDiagonal].getJugador() === jugador) {
+                contador++;
+                if (contador == dificultad) {
+                    finalizarJuego(jugador);
+                }
+                cDiagonal--;
+                fDiagonal--;
+            } else {
+                break;
+            }
+        }
+
+        cDiagonal = cInicial + 1;
+        fDiagonal = fInicial + 1;
+        while (cDiagonal <= columnas && fDiagonal <= filas && !fin_del_juego) {
+            if (matriz_box[cDiagonal][fDiagonal].getJugador() === jugador) {
+                contador++;
+                if (contador == dificultad) {
+                    finalizarJuego(jugador);
+                }
+                cDiagonal++;
+                fDiagonal++;
+            } else {
+                break;
+            }
+        }
+
+    }
+
+    function finalizarJuego(jugador) {
+        clearTimeout(timerId);
+        resultadoCanvas.style.display = 'flex';
+        resultadoCanvas.innerHTML = 'Ganó ' + jugador;
+        fin_del_juego = true;
+    }
 
     //Detectar posicion del mouse
     function getMousePos(event) {

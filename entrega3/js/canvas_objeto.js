@@ -42,6 +42,10 @@ class canvas_objeto {
         return this.imagen;
     }
 
+    getJugador() {
+        return this.jugador;
+    }
+
     draw() {
     }
 }
