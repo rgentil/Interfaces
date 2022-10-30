@@ -16,6 +16,8 @@ function iniciarPagina() {
     let imagenBox = new Image();
     imagenBox.src = CANVAS_IMG_BOX;
     let dificultad;
+    let columnas;
+    let filas;
     let turno_jugador_1 = true;
     let nombre1;
     let ficha1;
@@ -31,7 +33,7 @@ function iniciarPagina() {
     let arreglo_fichas_j2 = [];
     let ficha_j2_seleccionada = null;
 
-    let arreglo_box = [];
+    let matriz_box = [];
     let boxSeleccionado = null;
 
     let inicioX = 0;
@@ -84,6 +86,12 @@ function iniciarPagina() {
     let btnReiniciar = document.querySelector("#btn-reiniciar");
     btnReiniciar.addEventListener("click", function () {
         resultadoCanvas.style.display = 'none';
+        turno_jugador_1 = true;
+        ficha_j1_seleccionada = null;
+        ficha_j2_seleccionada = null;
+        boxSeleccionado = null;
+        inicioX = 0;
+        inicioY = 0;
         clearTimeout(timerId);
         canvasDraw();
         timer = TIEMPO_DE_JUEGO;
@@ -120,7 +128,9 @@ function iniciarPagina() {
         let dificultades = document.getElementsByName('dificultad');
         for (let d of dificultades) {
             if (d.checked) {
-                dificultad = d.value;
+                dificultad = Number(d.value);
+                columnas = dificultad + 2;
+                filas = dificultad + 1;
             }
         }
 
@@ -158,7 +168,7 @@ function iniciarPagina() {
         decreaseTimer();
     });
 
-    //Funcion llamada para dibujar la pantalla
+    //Funcion llamada para dibujar la pantalla al inicio de juego
     function canvasDraw() {
         //Para dibujar el fondo
         ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
@@ -193,18 +203,43 @@ function iniciarPagina() {
             arreglo_fichas_j2[i] = f2;
         }
 
-        for (let i = 0; i < 10; i++) {
-            let b = new canvas_box(
-                "",
-                ctx,
-                90 + (i * 54),
-                500,
-                imagenBox,
-                52,
-                52, `rgba(${0},${200},${200},${200})`);
-            b.draw();
-            arreglo_box[i] = b;
+        let xInit;
+        let yInit;
+        switch (dificultad) {
+            case 4:
+                xInit = 180;
+                yInit = 150;
+                break;
+            case 5:
+                xInit = 155;
+                yInit = 125;
+                break;
+            case 6:
+                xInit = 125;
+                yInit = 100;
+                break;
+            case 7:
+                xInit = 100;
+                yInit = 75;
+                break;
         }
+
+        for (let col = columnas; col >= 0; col--) {
+            matriz_box[col] = [];
+            for (let fil = filas; fil >= 0; fil--) {
+                let b = new canvas_box(
+                    "",
+                    ctx,
+                    xInit + (col * 54),
+                    yInit + (fil * 54),
+                    imagenBox,
+                    52,
+                    52, `rgba(${0},${200},${200},${200})`);
+                b.draw();
+                matriz_box[col][fil] = b;
+            }
+        }
+
     }
 
     //Eventos del mouse sobre el canvas
@@ -213,7 +248,6 @@ function iniciarPagina() {
     //Accion de hacer click 
     canvas.addEventListener('mousedown', function (event) {
         let mousePos = getMousePos(event);
-        console.log(turno_jugador_1);
         if (turno_jugador_1) {
             for (let i = 0; i < arreglo_fichas_j1.length; i++) {
                 let x = mousePos.x;
@@ -268,21 +302,30 @@ function iniciarPagina() {
 
     //Click del mouse levanta
     canvas.addEventListener('mouseup', function (event) {
-        let mousePos = getMousePos(event);
-        if (turno_jugador_1 && ficha_j1_seleccionada != null) {
-            for (let i = 0; i < arreglo_box.length; i++) {
-                if (arreglo_box[i].getPosCanvasX() < mousePos.x
-                    && !arreglo_box[i].isOcupado()
-                    && (arreglo_box[i].getLadoX() + arreglo_box[i].getPosCanvasX() > mousePos.x)
-                    && arreglo_box[i].getPosCanvasY() < mousePos.y
-                    && (arreglo_box[i].getLadoY() + arreglo_box[i].getPosCanvasY() > mousePos.y)
-                ) {//Si se suelta la ficha en un box
-                    arreglo_box[i].setOcupado(true);
-                    boxSeleccionado = arreglo_box[i];
+        if (ficha_j1_seleccionada != null || ficha_j2_seleccionada != null) {
+            let mousePos = getMousePos(event);
+            for (let i = columnas; i >= 0 && !boxSeleccionado; i--) {
+                for (let j = filas; j >= 0 && !boxSeleccionado; j--) {
+                    if (matriz_box[i][j].getPosCanvasX() < mousePos.x
+                        && !matriz_box[i][j].isOcupado()
+                        && (matriz_box[i][j].getLadoX() + matriz_box[i][j].getPosCanvasX() > mousePos.x)
+                        && matriz_box[i][j].getPosCanvasY() < mousePos.y
+                        && (matriz_box[i][j].getLadoY() + matriz_box[i][j].getPosCanvasY() > mousePos.y)
+                    ) {//Si se suelta la ficha en un box
+                        for (let fil = filas; fil >= 0 && !boxSeleccionado; fil--) {
+                            if (!matriz_box[i][fil].isOcupado()) {
+                                matriz_box[i][fil].setOcupado(true);
+                                boxSeleccionado = matriz_box[i][fil];
+                            }
+                        }
+                    }
                 }
-                for (let y = 0; y < arreglo_fichas_j1.length; y++) {
-                    if (boxSeleccionado != null
-                        && ficha_j1_seleccionada.getId() === arreglo_fichas_j1[y].getId()) {
+            }
+        }
+        if (turno_jugador_1 && ficha_j1_seleccionada != null) {
+            for (let y = 0; y < arreglo_fichas_j1.length; y++) {
+                if (ficha_j1_seleccionada.getId() === arreglo_fichas_j1[y].getId()) {
+                    if (boxSeleccionado != null) {
                         let posNueva = {
                             x: boxSeleccionado.getPosCanvasX() + (boxSeleccionado.getLadoX() / 2),
                             y: boxSeleccionado.getPosCanvasY() - 1 + ((boxSeleccionado.getLadoY() - arreglo_fichas_j1[y].getRadio()))
@@ -300,25 +343,15 @@ function iniciarPagina() {
                             arreglo_fichas_j1[y].setPosicionInicial();
                         }
                     }
+                    break;
                 }
             }
             ficha_j1_seleccionada = null;
-            boxSeleccionado = null;
         } else {
-            if (ficha_j2_seleccionada != null) {
-                for (let i = 0; i < arreglo_box.length; i++) {
-                    if (arreglo_box[i].getPosCanvasX() < mousePos.x
-                        && !arreglo_box[i].isOcupado()
-                        && (arreglo_box[i].getLadoX() + arreglo_box[i].getPosCanvasX() > mousePos.x)
-                        && arreglo_box[i].getPosCanvasY() < mousePos.y
-                        && (arreglo_box[i].getLadoY() + arreglo_box[i].getPosCanvasY() > mousePos.y)
-                    ) {//Si se suelta la ficha en un box
-                        arreglo_box[i].setOcupado(true);
-                        boxSeleccionado = arreglo_box[i];
-                    }
-                    for (let y = 0; y < arreglo_fichas_j2.length; y++) {
-                        if (boxSeleccionado != null
-                            && ficha_j2_seleccionada.getId() === arreglo_fichas_j2[y].getId()) {
+            if (!turno_jugador_1 && ficha_j2_seleccionada != null) {
+                for (let y = 0; y < arreglo_fichas_j2.length; y++) {
+                    if (ficha_j2_seleccionada.getId() === arreglo_fichas_j2[y].getId()) {
+                        if (boxSeleccionado != null) {
                             let posNueva = {
                                 x: boxSeleccionado.getPosCanvasX() + (boxSeleccionado.getLadoX() / 2),
                                 y: boxSeleccionado.getPosCanvasY() - 1 + ((boxSeleccionado.getLadoY() - arreglo_fichas_j2[y].getRadio()))
@@ -327,7 +360,7 @@ function iniciarPagina() {
                             arreglo_fichas_j2[y].setPosicionFinal(posNueva.x, posNueva.y);
                             //Habilita la siguinte ficha
                             arreglo_fichas_j2[y - 1].setHabilitada(true);
-                            //Si coloca la ficha, cambia de turno
+                            //Si coloca la ficha cambia de turno
                             turno_jugador_1 = !turno_jugador_1;
                         } else {
                             //Vuelve al origen
@@ -336,12 +369,13 @@ function iniciarPagina() {
                                 arreglo_fichas_j2[y].setPosicionInicial();
                             }
                         }
+                        break;
                     }
                 }
                 ficha_j2_seleccionada = null;
-                boxSeleccionado = null;
             }
         }
+        boxSeleccionado = null;
         canvasActualizar();
     });
 
@@ -357,8 +391,10 @@ function iniciarPagina() {
     function canvasActualizar() {
         ctx.drawImage(imageFondo, 0, 0, canvas.width, canvas.height);
 
-        for (let i = 0; i < arreglo_box.length; i++) {
-            arreglo_box[i].draw();
+        for (let i = columnas; i >= 0; i--) {
+            for (let j = filas; j >= 0; j--) {
+                matriz_box[i][j].draw();
+            }
         }
 
         for (let i = 0; i < arreglo_fichas_j1.length; i++) {
