@@ -178,6 +178,7 @@ function iniciarPagina() {
         //Jugador 1
         //Nombre
         nombre1 = document.getElementById('text-jugador1').value;
+        if (!nombre1) nombre1 = 'Jugador 1';
         //Ficha
         let fichas1 = document.getElementsByName('targetgroup1');
         for (let ficha of fichas1) {
@@ -191,6 +192,7 @@ function iniciarPagina() {
         //Jugador 2
         //Nombre
         nombre2 = document.getElementById('text-jugador2').value;
+        if (!nombre2) nombre2 = 'Jugador 2';
         //Ficha
         let fichas2 = document.getElementsByName('targetgroup2');
         for (let ficha of fichas2) {
