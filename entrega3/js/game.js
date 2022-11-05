@@ -284,7 +284,7 @@ function iniciarPagina() {
     }
 
     //Eventos del mouse sobre el canvas
-
+    //Solo se puede sacar la primer fichas, las demas estan deshabilitadas. 
     //Click del mouse sostenido
     //Accion de hacer click 
     canvas.addEventListener('mousedown', function (event) {
@@ -350,30 +350,35 @@ function iniciarPagina() {
         if (ficha_j1_seleccionada != null || ficha_j2_seleccionada != null) {
             let mousePos = getMousePos(event);
             for (let i = columnas; i >= 0 && !boxSeleccionado; i--) {
-                for (let j = filas; j >= 0 && !boxSeleccionado; j--) {
-                    if (matriz_box[i][j].getPosCanvasX() < mousePos.x
-                        && !matriz_box[i][j].isOcupado()
-                        && (matriz_box[i][j].getLadoX() + matriz_box[i][j].getPosCanvasX() > mousePos.x)
-                        && matriz_box[i][j].getPosCanvasY() < mousePos.y
-                        && (matriz_box[i][j].getLadoY() + matriz_box[i][j].getPosCanvasY() > mousePos.y)
-                    ) {//Si se suelta la ficha en un box
-                        for (let fil = filas; fil >= 0 && !boxSeleccionado; fil--) {
-                            if (!matriz_box[i][fil].isOcupado()) {
-                                matriz_box[i][fil].setOcupado(true);
-                                if (ficha_j1_seleccionada != null) {
-                                    matriz_box[i][fil].setJugador(ficha_j1_seleccionada.getJugador());
-                                } else {
-                                    if (ficha_j2_seleccionada != null) {
-                                        matriz_box[i][fil].setJugador(ficha_j2_seleccionada.getJugador());
-                                    }
+                //Solo se puede insertar una ficha desde arriba, por eso no recorre por filas
+                //para validar que se haya soltada una ficha dentro del tablero.
+                //Por eso se comenta el for por filas y se agrega let j = 0, para que recorra
+                //solo la primer fila.
+                //for (let j = filas; j >= 0 && !boxSeleccionado; j--) {
+                let j = 0;
+                if (matriz_box[i][j].getPosCanvasX() < mousePos.x
+                    && !matriz_box[i][j].isOcupado()
+                    && (matriz_box[i][j].getLadoX() + matriz_box[i][j].getPosCanvasX() > mousePos.x)
+                    && matriz_box[i][j].getPosCanvasY() < mousePos.y
+                    && (matriz_box[i][j].getLadoY() + matriz_box[i][j].getPosCanvasY() > mousePos.y)
+                ) {//Si se suelta la ficha en un box
+                    for (let fil = filas; fil >= 0 && !boxSeleccionado; fil--) {
+                        if (!matriz_box[i][fil].isOcupado()) {
+                            matriz_box[i][fil].setOcupado(true);
+                            if (ficha_j1_seleccionada != null) {
+                                matriz_box[i][fil].setJugador(ficha_j1_seleccionada.getJugador());
+                            } else {
+                                if (ficha_j2_seleccionada != null) {
+                                    matriz_box[i][fil].setJugador(ficha_j2_seleccionada.getJugador());
                                 }
-                                boxSeleccionado = matriz_box[i][fil];
-                                validarPosX = i;
-                                validarPosY = fil;
                             }
+                            boxSeleccionado = matriz_box[i][fil];
+                            validarPosX = i;
+                            validarPosY = fil;
                         }
                     }
                 }
+                //}
             }
         }
         if (turno_jugador_1 && ficha_j1_seleccionada != null) {
