@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Litgames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+    <link href="css/litGames.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="games.html">
+                <img src="img/LogoImg.png" alt="Lit Games">
+                <h1 class="header-title">Lit Games</h1>
+            </a>
+            <div>
+                <h2 class="slogan-logo">Todos los juegos, el fuego</h2>
+            </div>
+        </div>
+        <div class="bar-search">
+            <input type="text" class="text-busqueda" name="text-busqueda" value="" placeholder="Buscar Juego" />
+            <img class="lupa" src="img/tipolupa.png" alt="lupa">
+        </div>
+        <div class="burger">
+            <div class="user"><img src="img/User.png" alt="User">
+            </div>
+            <div>
+                <a id="myBtn">
+                    <img src="img/burguer.png" alt="Menu">
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- The Modal -->
+    <nav id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>
+                <h3>Usuario</h3>
+                <ul>
+                    <li><a>Mi Cuenta</a></li>
+                    <li><a>Mis Medios de Pago</a></li>
+                    <li><a>Achievements</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Juegos</h3>
+                <ul>
+                    <li><a>Mis Juegos</a></li>
+                    <li><a>Estadísticas</a></li>
+                    <li><a>Más Vendidos</a></li>
+                    <li><a>Nuevos</a></li>
+                    <li><a>Ofertas</a></li>
+                    <li><a>Gratis</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Social</h3>
+                <div class="social">
+                    <a href="games.html">
+                        <img src="img/iconosface.png" alt="Facebook">
+                    </a>
+                    <a href="games.html">
+                        <img src="img/iconosIG.png" alt="Instagram">
+                    </a>
+                    <a href="games.html">
+                        <img src="img/iconos.png" alt="Games">
+                    </a>
+                    <a href="games.html">
+                        <img src="img/iconostwiter.png" alt="Tweeter">
+                    </a>
+                    <a href="games.html">
+                        <img src="img/iconosyoutuve.png" alt="Youtuve">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <ul class="breadcrumb">
+            <li><a href="games.html">LitGames</a></li>
+            <li><a href="preSale.html">Juegos Epicos</a></li>
+            <li>Cuatro en Legends</li>
+        </ul>
+    </div>
+
+    <div class="hero" id="div-hero-game">
+        <!-- background image -->
+        <img class="gfg" src="img/hero.png">
+        <div class="hero-title" id="hero-title-jugar">
+            <h1 class="titles">Cuatro en Legends</h1>
+            <button class="item-btn btn-play" id="btn-play-cel">Jugar</button>
+        </div>
+
+        <div class="hero-title-play" id="hero-title-jugar-opciones">
+            <h1 class="titles">Cuatro en Legends</h1>
+            <div class="div-btns-play">
+                <div>
+                    <input type="radio" name="dificultad" value="4" id="radio-facil" checked />
+                    <label for="radio-facil">Fácil</label>
+                    <input type="radio" name="dificultad" value="5" id="radio-moderada" />
+                    <label for="radio-moderada">Moderada</label>
+                    <input type="radio" name="dificultad" value="6" id="radio-dificil" />
+                    <label for="radio-dificil">Difícil</label>
+                    <input type="radio" name="dificultad" value="7" id="radio-epica" />
+                    <label for="radio-epica">Épica</label>
+                </div>
+                <div class="jugador-seleccion">
+                    <input type="text" class="text-jugador" id="text-jugador1" name="text-jugador1" value="Jugador 1"
+                        placeholder="Jugador 1" />
+                    <div class="leftside">
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup1" checked value="ficha1">
+                            <div class="radio-btns"> <img src="img/ficha1.png" />
+                            </div>
+                            </input>
+                        </label>
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup1" disabled value="ficha2">
+                            <div class="radio-btns"> <img src="img/ficha2.png">
+                            </div>
+                            </input>
+                        </label>
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup1" value="ficha3">
+                            <div class="radio-btns"> <img src="img/ficha3.png">
+                            </div>
+                            </input>
+                        </label>
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup1" value="ficha4">
+                            <div class="radio-btns"> <img src="img/ficha4.png">
+                            </div>
+                            </input>
+                        </label>
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup1" value="ficha5">
+                            <div class="radio-btns"> <img src="img/ficha5.png">
+                            </div>
+                            </input>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="jugador-seleccion">
+                    <input type="text" class="text-jugador" id="text-jugador2" name="text-jugador2" value="Jugador 2"
+                        placeholder="Jugador 2" />
+                    <div class="leftside">
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup2" disabled value="ficha1">
+                            <div class="radio-btns"> <img src="img/ficha1.png" />
+                            </div>
+                            </input>
+                        </label>
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup2" checked value="ficha2">
+                            <div class="radio-btns"> <img src="img/ficha2.png">
+                            </div>
+                            </input>
+                        </label>
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup2" value="ficha3">
+                            <div class="radio-btns"> <img src="img/ficha3.png">
+                            </div>
+                            </input>
+                        </label>
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup2" value="ficha4">
+                            <div class="radio-btns"> <img src="img/ficha4.png">
+                            </div>
+                            </input>
+                        </label>
+                        <label class="labelexpanded">
+                            <input type="radio" name="targetgroup2" value="ficha5">
+                            <div class="radio-btns"> <img src="img/ficha5.png">
+                            </div>
+                            </input>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button class="item-btn btn-play" id="btn-play-start">Jugar</button>
+                    <button class="item-btn item-btn-bajando" id="btn-play-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-canvas">
+        <div class="turno-canvas">
+        </div>
+        <div class="timer-canvas"></div>
+        <div class="btn-canvas">
+            <button class="item-btn btn-play" id="btn-reiniciar">Reiniciar</button>
+            <button class="item-btn item-btn-bajando" id="btn-game-out">Salir</button>
+        </div>
+        <div class="resultado-canvas">
+        </div>
+        <div id="output" style="position:absolute; padding:5px;"></div>
+        <canvas id="canvas" class="canvas"></canvas>
+    </div>
+
+    <section class="content-detalle-juego">
+        <section class="detalle-juego">
+            <article class="detalle-cuatro-en-legends">
+                <div class="detalle-encabezado">
+                    <h1 class="titles">Cuatro en Legends</h1>
+                    <div>
+                        <img src="img/Flames5.png" alt="Flames5">
+                        <img src="img/compartir.png" alt="Compartir">
+                    </div>
+                </div>
+                <p>El desarrollo de Tears of the Kingdom comenzó a finales de 2017,9​ como una secuela directa de Breath
+                    of
+                    the Wild.​ Originalmente se pensó como un contenido de descargable del juego original, pero según su
+                    productor, Eiji Aonuma, tuvieron demasiadas ideas por lo que decidieron hacer un nuevo juego.Además
+                    declaró que la secuela no tendría relación o inspiración de Majora's Mask, pero que el juego iba a
+                    tomar
+                    un tono más oscuro.El equipo de desarrollo del juego, Monolith Soft, tuvo una expansión en sus
+                    divisiones para trabajar en la secuela.
+                    Para la realización del primer tráiler, Nintendo usó imágenes de captura de movimiento que
+                    posteriormente fueron renderizadas y transformadas en animación con gráficos cel-shading. En junio
+                    de
+                    2021, Eiji Aonuma afirmó que habían expandido el mapa del juego comparado con su predecesor y que se
+                    podían explorar los cielos de Hyrule.</p>
+            </article>
+            <article class="detalle-cuatro-en-legends">
+                <h2>Como jugar</h2>
+                <p>Dos Jugadores, por turnos, colocarán fichas en un tablero. Aquel que primero logre formar una linea
+                    de cuatro de sus fichas de forma vertical, horizontal o diagonal gana el partido. Si no quedaran más
+                    lugares donde poner fichas se declara un empate.</p>
+            </article>
+            <article class="detalle-cuatro-en-legends">
+                <h2>Controles</h2>
+                <p>Utiliza el mouse para elegir en que columna poner tu ficha.</p>
+            </article>
+            <article class="detalle-cuatro-en-legends">
+                <h2>Consejos</h2>
+                <p>Utiliza el mouse para elegir en que columna poner tu ficha.</p>
+            </article>
+        </section>
+        <section class="opinion">
+            <article class="content-comentar">
+                <input type="text" class="text-detalle" name="text-busqueda" value=""
+                    placeholder="Comparta su opinión" />
+                <button class="item-btn btn-comentar">Comentar</button>
+            </article>
+            <article class="detalle-cuatro-en-legends">
+                <div class="comentarista">
+                    <img src="img/User.png" alt="Usuario">
+                    <div>
+                        <h3>Juan Gomez Ozorno</h3>
+                        <h4>14/09/2022 15:36</h4>
+                    </div>
+                </div>
+                <p>El juego está buenísimo, me encantó la parte en la que puse las tres fichas en linea y corte que ya
+                    era tipo cuatro no... que nervios.</p>
+            </article>
+            <article class="detalle-cuatro-en-legends">
+                <div class="comentarista">
+                    <img src="img/User.png" alt="Usuario">
+                    <div>
+                        <h3>Fito Paez</h3>
+                        <h4>14/09/2022 15:36</h4>
+                    </div>
+                </div>
+                <p>Algunos juegos de ordenador matán a pobres corazones o son para gente sin swing, no es el caso del
+                    Cuatro en Legends, cuando pongo una ficha no se si es baires o madrid, pero está bueno. </p>
+            </article>
+            <article class="detalle-cuatro-en-legends">
+                <div class="comentarista">
+                    <img src="img/User.png" alt="Usuario">
+                    <div>
+                        <h3>Mauricio Macri</h3>
+                        <h4>14/09/2022 15:36</h4>
+                    </div>
+                </div>
+                <p>Siempre me gustó jugar cuatro en linea, desde los recreos en el Cardenal Newman, hasta en las
+                    reuniones de gabinete o el comité de boca.</p>
+            </article>
+
+        </section>
+
+    </section>
+
+    <!--div class="content-carousel-not-highlight">
+        <h1 class="carousel-title">Videos</h1>
+        <div class="carousel-wrapper">
+            <button type="button" class="arrows left-arrow arrow-inactive" aria-label="Arrow Left">
+                <img src="img/flecha1.png" alt="Arrow Left">
+            </button>
+            <div class="carousel">
+                <div class="carousel-item" id="carousel-item">
+                    <div class="carousel-item-card" id="carousel-item-card">
+                        <iframe src="https://www.youtube.com/embed/JBSbiilzg9U?" title="Como jugar" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="carousel-item" id="carousel-item">
+                    <div class="carousel-item-card" id="carousel-item-card">
+                        <iframe src="https://www.youtube.com/embed/V3V4TFkmiZY" title="Jugando" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="carousel-item" id="carousel-item">
+                    <div class="carousel-item-card" id="carousel-item-card">
+                        <iframe src="https://www.youtube.com/embed/am36QHp-TgQ" title="Musica para jugar"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="arrows right-arrow" aria-label="Arrow Right">
+                <img src="img/flecha2.png" alt="Arrow Right">
+            </button>
+        </div>
+    </div-->
+
+    <div class="content-carousel-not-highlight">
+        <h1 class="carousel-title">Imágenes</h1>
+        <div class="carousel-wrapper">
+            <button type="button" class="arrows left-arrow arrow-inactive" aria-label="Arrow Left">
+                <img src="img/flecha1.png" alt="Arrow Left">
+            </button>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <div class="carousel-item-card">
+                        <img class="carousel-item-img-game" src="img/Tarjeta6.png" alt="Jinx">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-item-card">
+                        <img class="carousel-item-img-game" src="img/Tarjeta7.png" alt="Yasou">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-item-card">
+                        <img class="carousel-item-img-game" src="img/Tarjeta8.png" alt="Thresh">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-item-card">
+                        <img class="carousel-item-img-game" src="img/Tarjeta9.png" alt="Miss">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-item-card">
+                        <img class="carousel-item-img-game" src="img/Tarjeta10.png" alt="Ahiri">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="arrows right-arrow" aria-label="Arrow Right">
+                <img src="img/flecha2.png" alt="Arrow Right">
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-1">
+            <a href="games.html">
+                <img src="img/LogoImg.png" alt="Lit Games">
+                <h1 class="header-title">Lit Games</h1>
+            </a>
+            <h2 class="slogan footer">Todos los juegos, el fuego</h2>
+        </div>
+        <div class="footer-2">
+            <div class="footer-items">
+                <h1 class="footer-title">Categoria</h1>
+                <h2 class="footer-subtitle">Lit Games Inc</h2>
+                <h2 class="footer-subtitle">Rodriguez 45, 4B</h2>
+                <h2 class="footer-subtitle">CP 7000</h2>
+                <h2 class="footer-subtitle">Buenos Aires</h2>
+            </div>
+            <div class="footer-items">
+                <h1 class="footer-title">Empresa</h1>
+                <h2 class="footer-subtitle">Acerca de Lit Games</h2>
+                <h2 class="footer-subtitle">Trabajá con nosotros</h2>
+            </div>
+            <div class="footer-items">
+                <h1 class="footer-title">Recursos</h1>
+                <h2 class="footer-subtitle">Soporte</h2>
+                <h2 class="footer-subtitle">Pregunta Frecuentes</h2>
+                <h2 class="footer-subtitle">Manual de Usuario</h2>
+            </div>
+            <div class="footer-items">
+                <h1 class="footer-title">Legal</h1>
+                <h2 class="footer-subtitle">Términos de uso</h2>
+            </div>
+        </div>
+
+        <div class="footer-social">
+            <a href="games.html">
+                <img src="img/iconosface.png" alt="Facebook">
+            </a>
+            <a href="games.html">
+                <img src="img/iconosIG.png" alt="Instagram">
+            </a>
+            <a href="games.html">
+                <img src="img/iconos.png" alt="Games">
+            </a>
+            <a href="games.html">
+                <img src="img/iconostwiter.png" alt="Tweeter">
+            </a>
+            <a href="games.html">
+                <img src="img/iconosyoutuve.png" alt="Youtuve">
+            </a>
+        </div>
+
+        <div class="footer-3">
+            <h2>Lit Games Inc. 2022. Todos los derechos reservados.</h2>
+        </div>
+    </footer>
+</body>
+
+<script text="text/javascript" src="js/canvas_objeto.js"></script>
+<script text="text/javascript" src="js/canvas_ficha.js"></script>
+<script text="text/javascript" src="js/canvas_box.js"></script>
+<script text="text/javascript" src="js/carousel.js"></script>
+<script text="text/javascript" src="js/menu.js"></script>
+<script text="text/javascript" src="js/game.js"></script>
+
+</html>

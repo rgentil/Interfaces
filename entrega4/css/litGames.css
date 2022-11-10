@@ -1,0 +1,1371 @@
+@font-face {
+    font-family: 'Bahiana';
+    src: url('../fonts/Bahiana-Regular.otf') format("opentype");
+}
+
+@font-face {
+    font-family: 'Bahianita';
+    src: url("../fonts/Bahianita-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url("../fonts/open-sans.regular.ttf") format('truetype');
+}
+
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #212121;
+    color: #c6c6c6;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+content {
+    font-family: 'Bahianita', sans-serif;
+}
+
+.logo {
+    position: relative;
+    height: 230px;
+}
+
+.slogan-logo {
+    position: absolute;
+    font-family: 'Bahiana', sans-serif;
+    font-size: 30px;
+    width: 350px;
+    bottom: 8px;
+    left: 155px;
+}
+
+#slogan-logo {
+    position: absolute;
+    bottom: 3px;
+    left: 145px;
+}
+
+.bar-search {
+    position: relative;
+    margin: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50%;
+}
+
+.text-busqueda {
+    font-family: 'Bahianita', sans-serif;
+    font-size: 27px;
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+::placeholder {
+    color: #FAC100;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #FAC100;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #FAC100;
+}
+
+.lupa {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    margin: auto;
+}
+
+
+.user {
+    margin: auto;
+    margin-right: 10px;
+}
+
+.burger {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+.header-title {
+    font-family: 'Bahianita', sans-serif;
+    font-size: 60px;
+    width: 150px;
+    text-align: center;
+    background: linear-gradient(0deg, #FAC100, #FF7600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.slogan {
+    font-family: 'Bahiana', sans-serif;
+    font-size: 35px;
+    width: 400px;
+    text-align: left;
+    margin: 0 0 2px 10px;
+}
+
+.slogan.footer {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 90px;
+}
+
+.footer-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.footer-2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.footer-2 .footer-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    padding-bottom: 20px;
+}
+
+.footer-2 .footer-subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 34px;
+    padding-bottom: 15px;
+}
+
+.footer-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.footer-social a {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer-3 {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding-bottom: 30px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+/* Inicio del carrusel**/
+.content-carousel-highlight {
+    background-color: #FF7600;
+    padding-bottom: 5px;
+}
+
+.content-carousel-not-highlight {
+    padding-top: 20px;
+}
+
+.content-carousel-not-highlight .arrows,
+.content-carousel-not-highlight .arrows:hover {
+    background-color: #000;
+}
+
+.carousel-title {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 60px;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.content-carousel-highlight .carousel-title {
+    background: linear-gradient(180deg, #212121 12.5%, #424242 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.carousel-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+    /*max-width: 800px;*/
+    width: 90%;
+    margin: auto;
+}
+
+.wrapped-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    justify-content: center;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+    gap: 1em;
+    scrollbar-width: none;
+}
+
+.arrows {
+    width: 20px;
+    height: 45px;
+    outline: none;
+    border: none;
+    background-color: #FF7600;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    padding: 0;
+    pointer-events: all;
+}
+
+.arrows:hover {
+    background-color: #FF7600;
+    transform: scale(1.1);
+}
+
+.arrows svg {
+    width: 1.5em;
+    height: 1.5em;
+    fill: white;
+}
+
+.arrow-inactive {
+    opacity: 0.5;
+    cursor: auto;
+}
+
+.arrow-inactive:hover {
+    transform: none;
+}
+
+.carousel-item-title {
+    width: 244px;
+    height: 45px;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    align-items: center;
+    text-align: center;
+    color: #C6C6C6;
+}
+
+.carousel-item {
+    width: 250px;
+    height: 400px;
+}
+
+.carousel-item-card {
+    position: relative;
+    width: 250px;
+    height: 400px;
+    background-color: #212121;
+    /*display: flex;
+    flex-direction: column;*/
+    text-align: center;
+    /*border: 5px solid #FAC100;*/
+    border-image: linear-gradient(#FAC100, #FF7600) 30;
+    border-width: 4px;
+    border-style: solid;
+    /*border-image-source: linear-gradient(to left, #FAC100, #FF7600);*/
+}
+
+.carousel-item-card:hover {
+    border-image: linear-gradient(#FF7600, #FAC100) 30;
+}
+
+.carousel-item-card iframe {
+    width: 550px;
+    height: 400px;
+}
+
+#carousel-item-card {
+    width: 100%;
+    height: 100%;
+}
+
+#carousel-item {
+    width: 100%;
+    height: 100%;
+}
+
+.img-destacada {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.image-highlight {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #212121;
+    width: 120px;
+    height: 40px;
+    border-image: linear-gradient(#FAC100, #FF7600) 30;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.highlight-inner {
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    color: #FAC100;
+    font-size: 150%;
+    margin-top: 3px;
+    height: 100%;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.carousel-item:hover .flip-card-inner {
+    transform: rotateY(360deg);
+}
+
+.flip-card-fornt,
+.flip-card-back {
+    width: 250px;
+    height: 400px;
+    background-color: #212121;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    color: black;
+}
+
+.flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.item-btn {
+    box-sizing: border-box;
+    width: 4em;
+    height: 1.6em;
+    border-radius: 6px;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 41px;
+    border: 1px solid #FAC100;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+}
+
+.item-btn:before {
+    content: '';
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.item-btn:active:after {
+    background: transparent;
+}
+
+.item-btn:hover:before {
+    opacity: 1;
+}
+
+.item-btn:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+.item-btn-play,
+.item-btn-play:active {
+    background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-play:hover {
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
+.item-btn-reservar {
+    background: radial-gradient(50% 50% at 50% 50%, #FF7600 0%, #FAC100 100%);
+}
+
+.item-btn-reservar:hover {
+    background: radial-gradient(50% 50% at 50% 50%, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-bajar {
+    background: linear-gradient(270deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-bajar:hover {
+    background: linear-gradient(90deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-comprar {
+    background: linear-gradient(90deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-comprar:hover {
+    background: linear-gradient(270deg, #FAC100 0%, #FF7600 100%);
+}
+
+.item-btn-bajando {
+    background: linear-gradient(90deg, #636363 6.25%, #C6C6C6 100%);
+
+}
+
+.item-btn-bajando:hover {
+    background: linear-gradient(180deg, #636363 12.5%, #C6C6C6 100%);
+}
+
+.btn-play {
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
+    border: 1px solid #FAC100;
+    border-radius: 6px;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 41px;
+    color: #212121;
+}
+
+.btn-play:hover {
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
+.btn-comentar {
+    box-sizing: border-box;
+    width: 85px;
+    height: 35px;
+    background: linear-gradient(180deg, #FAC100 0%, #FF7600 100%);
+    border: 1px solid #FAC100;
+    border-radius: 6px;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 30px;
+    line-height: 10px;
+    color: #212121;
+    margin-top: 10px;
+}
+
+.btn-comentar:hover {
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
+.reservar-ahora {
+    width: 300px;
+    height: 120px;
+    background: radial-gradient(50% 50% at 50% 50%, #FF7600 0%, #FAC100 100%);
+}
+
+.item-btn-reservar-ahora:hover {
+    width: 300px;
+    height: 120px;
+}
+
+.carousel-item-img {
+    width: 242px;
+    height: 242px;
+}
+
+.carousel-item-img-game {
+    width: 242px;
+    height: 392px;
+}
+
+.carousel-targeta-item-img {
+    width: auto;
+}
+
+.carousel-wrapper ::-webkit-scrollbar {
+    height: 0px;
+}
+
+/* Fin del carrusel**/
+
+/* Inicio loader_website */
+.loader_website {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    z-index: 1100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+
+    -webkit-transition: ease-in-out 0.1s;
+    -moz-transition: ease-in-out 0.1s;
+    -o-transition: ease-in-out 0.1s;
+    -ms-transition: ease-in-out 0.1s;
+    transition: ease-in-out 0.1s;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.loader_website * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body.loader .loader_website span {
+    top: 50%;
+}
+
+.loader_website>span {
+    display: block;
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+    background-color: #ffffff;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -24px;
+    top: -50px;
+
+    -webkit-transition: ease-in-out 0.1s;
+    -moz-transition: ease-in-out 0.1s;
+    -o-transition: ease-in-out 0.1s;
+    -ms-transition: ease-in-out 0.1s;
+    transition: ease-in-out 0.1s;
+
+    -webkit-box-shadow: #000 0px 5px 10px -5px;
+    -moz-box-shadow: #000 0px 5px 10px -5px;
+    -o-box-shadow: #000 0px 5px 10px -5px;
+    -ms-box-shadow: #000 0px 5px 10px -5px;
+    box-shadow: #000 0px 5px 10px -5px;
+}
+
+.loader_website>span>svg {
+    fill: transparent;
+    stroke: #e8961a;
+    stroke-width: 5;
+    animation: loader_dash 2s ease infinite, loader_rotate 2s linear infinite;
+}
+
+.loader .loading-text {
+    font-size: 50px;
+    font-weight: 600;
+    color: #e8961a;
+    text-align: center;
+    padding-top: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+@keyframes loader_dash {
+    0% {
+        stroke-dasharray: 1, 95;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 85, 95;
+        stroke-dashoffset: -25;
+    }
+
+    100% {
+        stroke-dasharray: 85, 95;
+        stroke-dashoffset: -93;
+    }
+}
+
+@keyframes loader_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* fin loader_website */
+/* Inicio hero image */
+.hero {
+    position: relative;
+}
+
+.hero .gfg {
+    width: 100%;
+}
+
+/* designing title and tag line */
+.hero .hero-title {
+    text-align: center;
+    position: absolute;
+    font-size: 60px;
+    font-style: normal;
+    color: #C6C6C6;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bahianita', sans-serif;
+    background-color: #000;
+    height: 250px;
+    width: 800px;
+    border: 1px solid #FAC100;
+    top: 65%
+}
+
+.hero .hero-title-play {
+    text-align: center;
+    position: absolute;
+    font-size: 60px;
+    font-style: normal;
+    color: #C6C6C6;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bahianita', sans-serif;
+    background-color: #000;
+    height: 650px;
+    width: 800px;
+    border: 1px solid #FAC100;
+    top: 40%
+}
+
+.content-canvas {
+    position: relative;
+    font-family: 'Bahianita', sans-serif;
+    position: relative;
+    width: 725px;
+    height: 607px;
+    margin: 0 auto 30px auto;
+}
+
+.btn-canvas {
+    position: absolute;
+    display: flex;
+    width: 220px;
+    top: 10px;
+    left: 480px;
+    justify-content: space-between;
+}
+
+#btn-reiniciar,
+#btn-game-out {
+    width: 100px;
+    height: 40px;
+}
+
+.timer-canvas {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-style: normal;
+    top: 10px;
+    left: 325px;
+
+}
+
+.resultado-canvas {
+    position: absolute;
+    font-size: 60px;
+    font-style: normal;
+    display: none;
+    top: 100px;
+    left: 60px;
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.turno-canvas {
+    position: absolute;
+    font-size: 40px;
+    font-style: normal;
+    display: flex;
+    top: 10px;
+    left: 15px;
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width:40%;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+.jugador-seleccion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.labelexpanded>input {
+    display: none;
+}
+
+.labelexpanded input:checked+.radio-btns {
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
+.labelexpanded input:hover+.radio-btns {
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+}
+
+.radio-btns {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 1px #000000;
+    cursor: pointer;
+    background-color: #000000;
+    float: left;
+    margin-right: 15px;
+    padding-top: 3px;
+    padding-right: 1px;
+}
+
+.radio-btns>img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.text-jugador {
+    font-family: 'Bahianita', sans-serif;
+    font-size: 27px;
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width: 30%;
+    padding-left: 10px;
+    color: #FAC100;
+}
+
+.div-btns-play {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-btns-play>div {
+    margin: 20px;
+}
+
+.div-btns-play label {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43px;
+    color: #C6C6C6;
+    margin-top: 10px;
+    color: #FAC100;
+}
+
+.div-btns-play h2 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FAC100;
+    margin-top: 10px;
+}
+
+.div-btns-play h3 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+    color: #FF7600;
+}
+
+.hero .hero-title-preSale {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    position: absolute;
+    font-size: 200%;
+    font-style: normal;
+    color: #C6C6C6;
+    left: 50%;
+    transform: translate(-110%, -95%);
+    font-family: 'Bahianita', sans-serif;
+    background-color: #000;
+    height: 65%;
+    width: 40%;
+    border: 1px solid #FAC100;
+    top: 77%
+}
+
+.title-disponible {
+    background: linear-gradient(180deg, #ff0000 12.5%, #faab00 100%);
+    position: absolute;
+    bottom: 0.4%;
+    right: 0.1%;
+    width: 50%;
+    height: 80%;
+    /*clip-path: circle(50% at center);*/
+    clip-path: circle(10% at bottom right);
+    transition: background-color, width 1s;
+    /*Transition tiene 4 propiedaes
+    */
+    /*Que propiedades van a sufrir la transiocion
+    por ejemplo: background-color, width, height o all*/
+    transition-property: clip-path;
+
+    /*Me define el tiempo que va a durar la transicion*/
+    transition-duration: 1s;
+
+    /*Define la curva de aceleracion de la transicion, por defecto es ease
+     ease | ease-in | ease-in-out | ease-out | linear*/
+    transition-timing-function: linear;
+
+    /*Define tiempo de espera para que una transicion se ejecute*/
+    transition-delay: 0.5s;
+}
+
+.hero .title-disponible:hover {
+    /*background: steelblue;*/
+    /**transition: background-color 2s;
+    Se puede agregar aca o directamente en la clase item*/
+    /*width: 400px;*/
+    clip-path: circle(80% at bottom right);
+}
+
+.title-disponible p {
+    position: absolute;
+    bottom: 35%;
+    right: 10%;
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 84px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    transform: rotate(-44.97deg);
+}
+
+.img {
+    width: 100%;
+}
+
+.historia,
+.feature,
+.genero,
+.modo-de-juego,
+.argumento {
+    border-image: linear-gradient(#FAC100, #FF7600) 30;
+    border-width: 4px;
+    border-style: solid;
+    margin: 5px;
+    padding: auto;
+}
+
+.historia:hover,
+.feature:hover,
+.genero:hover,
+.modo-de-juego:hover,
+.argumento:hover {
+    border-image: linear-gradient(#FF7600, #FAC100) 30;
+}
+
+.content-historia {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.content-historia h1 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FAC100;
+    margin: 10px;
+}
+
+.content-historia p {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: #FFFFFF;
+    margin: 10px;
+}
+
+.content-historia img {
+    margin-left: 30px;
+}
+
+#flame-texto {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.content-historia p {
+    margin: 10px;
+}
+
+.content-detalle-juego {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "detalle-juego opinion"
+    ;
+    border-image: linear-gradient(#FAC100, #FF7600) 30;
+    border-width: 2px;
+    border-style: solid;
+    margin: 30px;
+    padding: 15px;
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.detalle-juego {
+    grid-area: detalle-juego;
+}
+
+.opinion {
+    grid-area: opinion;
+    overflow: auto;
+}
+
+.comentarista {
+    display: flex;
+    margin-top: 15px;
+}
+
+.comentarista div {
+    margin-left: 10px;
+}
+
+
+.detalle-cuatro-en-legends h1 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: #C6C6C6;
+}
+
+.detalle-cuatro-en-legends h2 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FAC100;
+    margin-top: 10px;
+}
+
+.detalle-cuatro-en-legends h3 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+    color: #FF7600;
+}
+
+.detalle-cuatro-en-legends h4 {
+    font-family: 'Bahiana';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FAC100;
+}
+
+.detalle-cuatro-en-legends p {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 27px;
+    color: #C6C6C6;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+.detalle-encabezado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.detalle-encabezado div {
+    margin: auto;
+}
+
+.content-comentar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.text-detalle {
+    font-family: 'Bahianita', sans-serif;
+    font-size: 27px;
+    height: 60px;
+    background: #424242;
+    border-radius: 15px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    position: absolute;
+    top: 1%;
+    right: 5px;
+    background-color: #212121;
+    border-image: linear-gradient(#FAC100, #FF7600) 30 round;
+    border-width: 1px;
+    border-style: solid;
+    padding: 20px;
+    height: 98%;
+    width: 30%;
+    /* Could be more or less, depending on screen size */
+    animation: slide 0.6s;
+    animation-timing-function: ease;
+}
+
+@keyframes slide {
+    from {
+        right: -300px;
+    }
+
+    to {
+        right: 5px;
+    }
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #FF7600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-size: 50px;
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #e8961a;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-content li {
+    color: #C6C6C6;
+    font-family: "Open Sans", sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+    margin: 8px;
+}
+
+.modal-content a:hover {
+    color: #e8961a;
+    background: linear-gradient(180deg, #FF7600 12.5%, #FAC100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    width: 80%;
+    margin-top: 15px;
+}
+
+.social img {
+    height: 25px;
+    width: 25px;
+}
+
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+}
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: #C6C6C6;
+    content: ">>";
+}
+
+ul.breadcrumb li a {
+    color: #C6C6C6;
+    text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+    color: #C6C6C6;
+    text-decoration: underline;
+}
+
+/* End hero image */
+@media only screen and (min-width: 767px) {
+    header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        padding-left: 10px;
+    }
+
+    .burger {
+        padding-right: 20px;
+    }
+
+    .footer-items {
+        padding-right: 80px;
+        padding-left: 80px;
+    }
+
+    .slogan {
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .footer-2 {
+        flex-direction: row;
+    }
+
+    .historia {
+        grid-area: historia;
+    }
+
+    .feature {
+        grid-area: feature;
+    }
+
+    .genero {
+        grid-area: genero;
+    }
+
+    .modo-de-juego {
+        grid-area: modo-de-juego;
+    }
+
+    .argumento {
+        grid-area: argumento;
+    }
+
+    .content-historia {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1f;
+        grid-template-areas:
+            "historia feature modo-de-juego"
+            "historia genero argumento"
+        ;
+    }
+
+    .carousel-item-card iframe {
+        width: 700px;
+        height: 550px;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    .carousel-item-card iframe {
+        width: 900px;
+        height: 700px;
+    }
+}
