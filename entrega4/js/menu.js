@@ -1,25 +1,23 @@
-// Get the modal
-var modal = document.getElementById("myModal");
+const burgerDiv = document.querySelector('#burgerDiv');
+const menuBurger = document.querySelector('.headerRigth .menu_opciones');
+burgerDiv.addEventListener('click', e => {
+  burgerDiv.classList.toggle('active');
+  menuBurger.classList.toggle('open');
+});
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
+window.onscroll = function () {
+  scrollFunction();
 }
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.querySelector(".nav-bar").style.height = "100px";
+    document.querySelector(".logo").style.display = 'none';
+    document.querySelector(".logoMin").style.display = 'block'
+    menuBurger.style.top = '100px';
+  } else {
+    document.querySelector(".nav-bar").style.height = '230px';
+    document.querySelector(".logo").style.display = 'block';
+    document.querySelector(".logoMin").style.display = 'none';
+    menuBurger.style.top = '150px';
   }
 }
