@@ -2,7 +2,6 @@ const burgerDiv = document.querySelector('#burgerDiv');
 const menuBurger = document.querySelector('.headerRigth .menu_opciones');
 const social = document.querySelector('.social');
 const logo = document.querySelector('.logo');
-
 burgerDiv.addEventListener('click', e => {
   burgerDiv.classList.toggle('active');
   menuBurger.classList.toggle('open');
@@ -22,4 +21,5 @@ function scrollFunction() {
     logo.classList.remove('min');
     menuBurger.style.top = '150px';
   }
+
 }
