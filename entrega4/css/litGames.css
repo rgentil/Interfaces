@@ -28,7 +28,7 @@ body {
 header {
     width: 100%;
     height: 230px;
-    background-color: #212121;    
+    background-color: #212121;
 }
 
 .nav-bar {
@@ -53,26 +53,39 @@ content {
     transition: 1s;
 }
 
-.logoMin {
-    display: none;
-    position: relative;
+.logo.min {
     height: 100px;
+}
+
+.logo img {
     transition: 1s;
 }
 
-.logoMin img {
+.logo.min img {
     width: 50%;
     margin-top: 5px;
     margin-left: 20px;
 }
 
-.slogan-logo {
+.logo .slogan-logo {
     position: absolute;
     font-family: 'Bahiana', sans-serif;
     font-size: 30px;
     width: 350px;
     bottom: 8px;
     left: 155px;
+}
+
+.logo.min .slogan-logo {
+    display: none;
+}
+
+.logo .header-title {
+    transition: 1s;
+}
+
+.logo.min .header-title {
+    display: none;
 }
 
 .bar-search {
@@ -141,7 +154,7 @@ content {
 }
 
 /* Transition para todos los metodos */
-#burgerDiv span{
+#burgerDiv span {
     border-radius: 10px;
     background: linear-gradient(0deg, #FAC100, #FF7600);
     width: 100%;
@@ -150,28 +163,28 @@ content {
 }
 
 /* burger active */
-#burgerDiv.active .linea1{
+#burgerDiv.active .linea1 {
     opacity: 0;
     width: 0;
 }
 
-#burgerDiv.active .linea2{
+#burgerDiv.active .linea2 {
     transform: translateY(0px) rotate(45deg);
 }
 
-#burgerDiv.active .linea3{
+#burgerDiv.active .linea3 {
     transform: translateY(-18px) rotate(-45deg);
 }
 
-.headerRigth .menu_opciones{   
+.headerRigth .menu_opciones {
     overflow: hidden;
     height: 0;
     width: 0;
 }
 
-.headerRigth .menu_opciones.open{
+.headerRigth .menu_opciones.open {
     overflow-y: scroll;
-    height:80%;
+    height: 80%;
     position: fixed;
     background-color: #212121;
     border-image: linear-gradient(#FAC100, #FF7600) 30 round;
@@ -180,7 +193,7 @@ content {
     padding: 20px;
     transition: all 500ms ease-out;
     top: 150px;
-    right: 10px;    
+    right: 10px;
     width: 40%;
 }
 
@@ -194,8 +207,9 @@ content {
     background-clip: text;
     /*transition: all 500ms ease-out;*/
     transform: translateX(3%);
-	transition: transform 1500ms ease-out;
+    transition: transform 1500ms ease-out;
 }
+
 .headerRigth .menu_opciones h3 {
     transform: translateX(100%);
 }
@@ -207,7 +221,7 @@ content {
     padding-bottom: 20px;
     margin-bottom: 20px;
     transform: translateX(3%);
-	transition: transform 1500ms ease-out;
+    transition: transform 1500ms ease-out;
 }
 
 .headerRigth .menu_opciones ul {
@@ -240,17 +254,17 @@ content {
     width: 80%;
     margin-top: 15px;
     transform: translateX(3%);
-	transition: transform 1500ms ease-out;
+    transition: transform 1500ms ease-out;
 }
 
 .social.open img {
     height: 25px;
     width: 25px;
     transform: translateX(3%);
-	transition: transform 1500ms ease-out;
+    transition: transform 1500ms ease-out;
 }
 
-.social{
+.social {
     transform: translateX(100%);
 }
 
@@ -964,7 +978,7 @@ body.loader .loader_website span {
     height: 60px;
     background: #424242;
     border-radius: 15px;
-    width:40%;
+    width: 40%;
     align-items: center;
     justify-content: flex-start;
     padding-left: 10px;
