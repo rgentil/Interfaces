@@ -1,8 +1,11 @@
 const burgerDiv = document.querySelector('#burgerDiv');
 const menuBurger = document.querySelector('.headerRigth .menu_opciones');
+const social = document.querySelector('.social');
+
 burgerDiv.addEventListener('click', e => {
   burgerDiv.classList.toggle('active');
   menuBurger.classList.toggle('open');
+  social.classList.toggle('open');
 });
 
 window.onscroll = function () {
