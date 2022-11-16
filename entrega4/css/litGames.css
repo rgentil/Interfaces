@@ -179,7 +179,7 @@ content {
 .headerRigth .menu_opciones {
     overflow: hidden;
     height: 0;
-    width: 0;
+    width: 0;    
 }
 
 .headerRigth .menu_opciones.open {

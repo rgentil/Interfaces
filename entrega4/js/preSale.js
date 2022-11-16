@@ -40,9 +40,10 @@ function scrollFunction() {
     arrowRight.classList.remove('transitionCarrusel');
   }
   /*Tarjetas del carrusel*/
+  const triggerBottom1 = window.innerHeight / 7 * 6;
   flipCards.forEach(flipCard => {
     const fcTop = flipCard.getBoundingClientRect().top;
-    if (fcTop < triggerBottom) {
+    if (fcTop < triggerBottom1) {
       flipCard.classList.add('transitionCarrusel');
     } else {
       flipCard.classList.remove('transitionCarrusel');
