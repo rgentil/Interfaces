@@ -179,7 +179,7 @@ content {
 .headerRigth .menu_opciones {
     overflow: hidden;
     height: 0;
-    width: 0;    
+    width: 0;
 }
 
 .headerRigth .menu_opciones.open {
@@ -1129,6 +1129,78 @@ body.loader .loader_website span {
     top: 77%
 }
 
+@keyframes scroll1 {
+    0% {
+        background-position-x: 0px;
+    }
+
+    100% {
+        background-position-x: -1920px;
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        background-position-x: -1920px;
+    }
+
+    100% {
+        background-position-x: -0px;
+    }
+}
+
+.layer {
+    min-width: 500px;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: repeat-x;
+    background-size: cover;
+}
+
+.layer-1 {
+    background-image: url(../img/parallax/clouds_1.png);
+    animation: scroll1 20s infinite linear;
+}
+
+.layer-2 {
+    background-image: url(../img/parallax/clouds_2.png);
+    animation: scroll2 20s infinite linear;
+}
+
+.layer-3 {
+    background-image: url(../img/parallax/clouds_3.png);
+    animation: scroll1 20s infinite linear;
+}
+
+.hero-title-preSale .titles {
+    animation: opacidad 3s linear infinite;
+}
+
+@keyframes opacidad {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 2;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .title-disponible {
     background: linear-gradient(180deg, #ff0000 12.5%, #faab00 100%);
     position: absolute;
@@ -1227,8 +1299,13 @@ body.loader .loader_website span {
 }
 
 @keyframes attack {
-    0% { background-position: 0;}
-    100% {background-position: -1750px;}
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -1750px;
+    }
 }
 
 #link-shield {
@@ -1240,8 +1317,13 @@ body.loader .loader_website span {
 }
 
 @keyframes shield {
-    0% { background-position: 0;}
-    100% {background-position: -2568px;}
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -2568px;
+    }
 }
 
 #link-arrow {
@@ -1253,8 +1335,13 @@ body.loader .loader_website span {
 }
 
 @keyframes arrow {
-    0% { background-position: 0;}
-    100% {background-position: -1455px;}
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -1455px;
+    }
 }
 
 .content-historia {
@@ -1263,7 +1350,8 @@ body.loader .loader_website span {
     flex-direction: column;
 }
 
-.content-historia h1, .sprit-sheet h1 {
+.content-historia h1,
+.sprit-sheet h1 {
     font-family: 'Bahianita';
     font-style: normal;
     font-weight: 400;
