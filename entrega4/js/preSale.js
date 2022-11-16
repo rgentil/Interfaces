@@ -4,7 +4,9 @@ const social = document.querySelector('.social');
 const logo = document.querySelector('.logo');
 const arrowLeft = document.querySelector('#idArrowLeftPreSale');
 const arrowRight = document.querySelector('#idArrowRightPreSale');
-const flipCards = document.querySelectorAll('.flip-card-inner')
+const flipCards = document.querySelectorAll('.flip-card-inner');
+
+/*Accion del menu hamburguesa*/
 burgerDiv.addEventListener('click', e => {
   burgerDiv.classList.toggle('active');
   menuBurger.classList.toggle('open');
@@ -14,6 +16,7 @@ burgerDiv.addEventListener('click', e => {
 window.onscroll = function () {
   scrollFunction();
 }
+
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     document.querySelector(".nav-bar").style.height = "100px";
@@ -27,7 +30,7 @@ function scrollFunction() {
 
   /* Animacion de las tarjetas al scrollear */
   const triggerBottom = window.innerHeight / 5 * 4;
-  
+  /*Flechas izquierda y derecha del carrusel*/
   const alTop = arrowLeft.getBoundingClientRect().top;
   if (alTop < triggerBottom) {
     arrowLeft.classList.add('transitionCarrusel');
@@ -36,7 +39,7 @@ function scrollFunction() {
     arrowLeft.classList.remove('transitionCarrusel');
     arrowRight.classList.remove('transitionCarrusel');
   }
-
+  /*Tarjetas del carrusel*/
   flipCards.forEach(flipCard => {
     const fcTop = flipCard.getBoundingClientRect().top;
     if (fcTop < triggerBottom) {
@@ -45,7 +48,5 @@ function scrollFunction() {
       flipCard.classList.remove('transitionCarrusel');
     }
   });
-
-
 
 }

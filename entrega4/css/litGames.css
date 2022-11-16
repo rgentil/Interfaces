@@ -452,6 +452,24 @@ footer {
     transform: scale(1.1);
 }
 
+.idArrowLeftPreSale {
+    width: 20px;
+    height: 45px;
+    outline: none;
+    border: none;
+    background-color: #FF7600;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    padding: 0;
+    pointer-events: all;
+}
+
 .arrows svg {
     width: 1.5em;
     height: 1.5em;
@@ -548,17 +566,19 @@ footer {
     height: 100%;
 }
 
-#idArrowLeftPreSale, #idArrowRightPreSale{
+#idArrowLeftPreSale,
+#idArrowRightPreSale {
     transform: translateX(-500%);
     transition: transform .5s ease-out;
 }
 
-#idArrowRightPreSale{
+#idArrowRightPreSale {
     transform: translateX(500%);
     transition: transform .5s ease-out;
 }
 
-#idArrowLeftPreSale.transitionCarrusel, #idArrowRightPreSale.transitionCarrusel{
+#idArrowLeftPreSale.transitionCarrusel,
+#idArrowRightPreSale.transitionCarrusel {
     transform: translateX(0%);
 }
 
@@ -573,10 +593,6 @@ footer {
 
 .flip-card-inner.transitionCarrusel {
     transform: translateY(0%);
-}
-
-.carousel-item:hover {
-    transform: rotateY(360deg);
 }
 
 .flip-card-fornt,
@@ -1187,14 +1203,67 @@ body.loader .loader_website span {
     border-image: linear-gradient(#FF7600, #FAC100) 30;
 }
 
+.sprit-sheet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#sprit-sheet-background {
+    background-color: #00FF00;
+    width: 130px;
+    height: 160px;
+    margin: auto;
+}
+
+#link-attack {
+    width: 124px;
+    height: 150px;
+    margin: auto;
+    background: url(../img/spritesheet1.png) repeat-x;
+    animation: attack 1.5s steps(14) infinite;
+}
+
+@keyframes attack {
+    0% { background-position: 0;}
+    100% {background-position: -1750px;}
+}
+
+#link-shield {
+    width: 96px;
+    height: 150px;
+    margin: auto;
+    background: url(../img/spritesheet2.png) repeat-x;
+    animation: shield 2s steps(26) infinite;
+}
+
+@keyframes shield {
+    0% { background-position: 0;}
+    100% {background-position: -2568px;}
+}
+
+#link-arrow {
+    width: 96px;
+    height: 150px;
+    margin: auto;
+    background: url(../img/spritesheet3.png) repeat-x;
+    animation: arrow 2s steps(15) infinite;
+}
+
+@keyframes arrow {
+    0% { background-position: 0;}
+    100% {background-position: -1455px;}
+}
+
 .content-historia {
     margin: 5%;
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 
-.content-historia h1 {
+.content-historia h1, .sprit-sheet h1 {
     font-family: 'Bahianita';
     font-style: normal;
     font-weight: 400;
