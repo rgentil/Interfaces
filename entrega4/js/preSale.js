@@ -5,6 +5,10 @@ const logo = document.querySelector('.logo');
 const arrowLeft = document.querySelector('#idArrowLeftPreSale');
 const arrowRight = document.querySelector('#idArrowRightPreSale');
 const flipCards = document.querySelectorAll('.flip-card-inner');
+const spritSheetH1 = document.querySelectorAll('.sprit-sheet h1');
+const spritSheetBackground = document.querySelectorAll('#sprit-sheet-background');
+
+
 
 /*Accion del menu hamburguesa*/
 burgerDiv.addEventListener('click', e => {
@@ -49,5 +53,60 @@ function scrollFunction() {
       flipCard.classList.remove('transitionCarrusel');
     }
   });
+
+  spritSheetH1.forEach(ssh1 => {
+    let op = 0 + document.documentElement.scrollTop / 1000;
+    if (op < 0.6) {
+      ssh1.style.opacity = 0;
+    }
+    else {
+      if (op < 0.7) {
+        ssh1.style.opacity = 0.25;
+      } else {
+        if (op < 0.8) {
+          ssh1.style.opacity = 0.50;
+        }
+        else {
+          if (op < 0.9) {
+            ssh1.style.opacity = 0.75;
+          }
+          else {
+            ssh1.style.opacity = 1;
+          }
+        }
+      }
+    }
+  });
+
+  spritSheetBackground.forEach(ssb => {
+    let op2 = 0 + document.documentElement.scrollTop / 1000;
+    if (op2 < 0.6) {
+      ssb.style.transform = 'translateY(100%)';
+      ssb.style.opacity = 0;
+    }
+    else {
+      if (op2 < 0.7) {
+        ssb.style.transform = 'translateY(75%)';
+        ssb.style.opacity = 0.25;
+      } else {
+        if (op2 < 0.8) {
+          ssb.style.transform = 'translateY(50%)';
+          ssb.style.opacity = 0.50;
+        }
+        else {
+          if (op2 < 0.9) {
+            ssb.style.transform = 'translateY(25%)';
+            ssb.style.opacity = 0.75;
+          }
+          else {
+            ssb.style.transform = 'translateY(0%)';
+            ssb.style.opacity = 1;
+          }
+        }
+      }
+    }
+  });
+
+  
 
 }
