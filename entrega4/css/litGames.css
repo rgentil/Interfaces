@@ -921,6 +921,7 @@ body.loader .loader_website span {
 
 .hero .gfg {
     width: 100%;
+    animation: opacidad 8s linear forwards;
 }
 
 /* designing title and tag line */
@@ -1135,7 +1136,8 @@ body.loader .loader_website span {
     height: 65%;
     width: 40%;
     border: 1px solid #FAC100;
-    top: 77%
+    top: 77%;
+    z-index: 5;
 }
 
 @keyframes scroll1 {
@@ -1144,13 +1146,13 @@ body.loader .loader_website span {
     }
 
     100% {
-        background-position-x: -1920px;
+        background-position-x: -1077px;
     }
 }
 
 @keyframes scroll2 {
     0% {
-        background-position-x: -1920px;
+        background-position-x: -1080px;
     }
 
     100% {
@@ -1158,41 +1160,47 @@ body.loader .loader_website span {
     }
 }
 
+.div-layer {
+    animation: opacidad 8s linear forwards;
+}
+
 .layer {
     min-width: 500px;
     width: 100%;
-    height: 50%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     background-repeat: repeat-x;
     background-size: cover;
-    
 }
 
 .layer-1 {
     background-image: url(../img/parallax/clouds_1.png);
-    animation: scroll1 10s infinite linear;
+    animation: scroll1 5s infinite linear;
 }
 
 .layer-2 {
     background-image: url(../img/parallax/clouds_2.png);
-    animation: scroll2 15s infinite linear;
+    animation: scroll2 7s infinite linear;
 }
 
 .layer-3 {
     background-image: url(../img/parallax/clouds_3.png);
-    animation: scroll1 20s infinite linear;
+    animation: scroll1 10s infinite linear;
+}
+
+.layer-4 {
+    background-image: url(../img/parallax/birds.png);
+    animation: opacidad 8s linear forwards;
 }
 
 .hero-title-preSale .titles {
-    animation: opacidad 25s linear forwards;
-    color: #FAC100;
+    animation: opacidad 8s linear forwards;
 }
 
 .hero-title-preSale {
-    animation: opacidad 15s linear forwards;
-    color: #FAC100;
+    animation: opacidad 5s linear forwards;
 }
 
 @keyframes opacidad {
@@ -1201,19 +1209,19 @@ body.loader .loader_website span {
     }
 
     25% {
-        opacity: 1;
+        opacity: 0.25;
     }
 
     50% {
-        opacity: 2;
+        opacity: 0.50;
     }
 
     75% {
-        opacity: 3;
+        opacity: 0.75;
     }
 
     100% {
-        opacity: 4;
+        opacity: 1;
     }
 }
 
@@ -1242,6 +1250,7 @@ body.loader .loader_website span {
 
     /*Define tiempo de espera para que una transicion se ejecute*/
     transition-delay: 0.5s;
+    z-index: 5;
 }
 
 .hero .title-disponible:hover {
@@ -1303,7 +1312,7 @@ body.loader .loader_website span {
     background-color: #212121;
     width: 130px;
     height: 160px;
-    margin: auto;   
+    margin: auto;
     transform: translateY(100%);
     opacity: 0;
     transition: all 1s ease-out;
@@ -1377,13 +1386,14 @@ body.loader .loader_website span {
     font-size: 48px;
     line-height: 58px;
     color: #FAC100;
-    margin: 10px;    
+    margin: 10px;
 }
 
 .sprit-sheet h1 {
     opacity: 0;
     transition: 1s;
 }
+
 .content-historia p {
     font-family: "Open Sans", sans-serif;
     font-style: normal;

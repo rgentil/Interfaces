@@ -55,7 +55,7 @@ function scrollFunction() {
   });
 
   spritSheetH1.forEach(ssh1 => {
-    let op = 0 + document.documentElement.scrollTop / 1000;
+    let op = 0 + document.documentElement.scrollTop / 1200;
     if (op < 0.6) {
       ssh1.style.opacity = 0;
     }
@@ -79,7 +79,7 @@ function scrollFunction() {
   });
 
   spritSheetBackground.forEach(ssb => {
-    let op2 = 0 + document.documentElement.scrollTop / 1000;
+    let op2 = 0 + document.documentElement.scrollTop / 1200;
     if (op2 < 0.6) {
       ssb.style.transform = 'translateY(100%)';
       ssb.style.opacity = 0;
