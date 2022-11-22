@@ -87,5 +87,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
         loader.style.display = 'none';
         console.log(loader);
 
-    }, "2000")
+    }, "5000")
 });

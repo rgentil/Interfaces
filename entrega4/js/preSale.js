@@ -7,7 +7,8 @@ const arrowRight = document.querySelector('#idArrowRightPreSale');
 const flipCards = document.querySelectorAll('.flip-card-inner');
 const spritSheetH1 = document.querySelectorAll('.sprit-sheet h1');
 const spritSheetBackground = document.querySelectorAll('#sprit-sheet-background');
-
+const textos = document.querySelectorAll(".texto");
+const imgs = document.querySelectorAll(".img");
 
 
 /*Accion del menu hamburguesa*/
@@ -22,6 +23,7 @@ window.onscroll = function () {
 }
 
 function scrollFunction() {
+  let scrollY = this.scrollY;
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     document.querySelector(".nav-bar").style.height = "100px";
     logo.classList.add('min');
@@ -55,7 +57,7 @@ function scrollFunction() {
   });
 
   spritSheetH1.forEach(ssh1 => {
-    let op = 0 + document.documentElement.scrollTop / 1200;
+    let op = 0 + document.documentElement.scrollTop / 1400;
     if (op < 0.6) {
       ssh1.style.opacity = 0;
     }
@@ -79,7 +81,7 @@ function scrollFunction() {
   });
 
   spritSheetBackground.forEach(ssb => {
-    let op2 = 0 + document.documentElement.scrollTop / 1200;
+    let op2 = 0 + document.documentElement.scrollTop / 1400;
     if (op2 < 0.6) {
       ssb.style.transform = 'translateY(100%)';
       ssb.style.opacity = 0;
@@ -107,6 +109,34 @@ function scrollFunction() {
     }
   });
 
-  
+  textos.forEach(function (t) {
+    t.classList.add("oculto")
+  })
+
+  imgs.forEach(function (t) {
+    t.classList.add("imgOculta")
+  })
+
+  console.log(scrollY);
+
+  if (scrollY < 1700) {
+    textos[0].classList.remove("oculto");
+    imgs[0].classList.remove("imgOculta");
+  }
+  else if (scrollY >= 1700 && scrollY < 2050) {
+    textos[1].classList.remove("oculto");
+    imgs[1].classList.remove("imgOculta");
+  } else if (scrollY >= 2050 && scrollY < 2300) {
+    textos[2].classList.remove("oculto")
+    imgs[2].classList.remove("imgOculta");
+  } else if (scrollY >= 2300 && scrollY < 2500) {
+    textos[3].classList.remove("oculto");
+    imgs[3].classList.remove("imgOculta");
+  } else {
+    if (scrollY >= 2500 && scrollY < 4900) {
+      textos[4].classList.remove("oculto");
+      imgs[4].classList.remove("imgOculta");
+    }
+  }
 
 }

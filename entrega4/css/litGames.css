@@ -313,6 +313,7 @@ footer {
     justify-content: center;
     align-items: center;
     padding-top: 90px;
+    margin-top: 20px;
 }
 
 .footer-1 {
@@ -1275,36 +1276,14 @@ body.loader .loader_website span {
     transform: rotate(-44.97deg);
 }
 
-.img {
-    width: 100%;
-}
-
-.historia,
-.feature,
-.genero,
-.modo-de-juego,
-.argumento {
-    border-image: linear-gradient(#FAC100, #FF7600) 30;
-    border-width: 4px;
-    border-style: solid;
-    margin: 5px;
-    padding: auto;
-}
-
-.historia:hover,
-.feature:hover,
-.genero:hover,
-.modo-de-juego:hover,
-.argumento:hover {
-    border-image: linear-gradient(#FF7600, #FAC100) 30;
-}
-
 .sprit-sheet {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    /*min-height: 400px;*/
 }
 
 #sprit-sheet-background {
@@ -1371,14 +1350,9 @@ body.loader .loader_website span {
     }
 }
 
-.content-historia {
-    margin: 5%;
-    display: flex;
-    flex-direction: column;
-}
-
-.content-historia h1,
 .sprit-sheet h1 {
+    opacity: 0;
+    transition: 1s;
     font-family: 'Bahianita';
     font-style: normal;
     font-weight: 400;
@@ -1388,12 +1362,39 @@ body.loader .loader_website span {
     margin: 10px;
 }
 
-.sprit-sheet h1 {
-    opacity: 0;
-    transition: 1s;
+.div-content-historia {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
-.content-historia p {
+.content-historia-detalle {
+    width: 50%;
+}
+
+.content-historia {
+    position: sticky;
+    width: 50%;
+    height: 100%;
+    top: 15%;
+    min-width: 500px;    
+}
+
+.texto {
+    min-width: 500px;
+}
+
+.texto h1 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FAC100;
+    margin: -9px 10px 10px 10px;
+}
+
+.texto p {
     font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -1403,17 +1404,168 @@ body.loader .loader_website span {
     margin: 10px;
 }
 
-.content-historia img {
-    margin-left: 30px;
+.img {
+    height: 500px;
+    background-color: antiquewhite;
+    margin-left: 25px;    
+}
+
+.oculto {
+    opacity: 0;    
+}
+
+.imgOculta {
+    display: none;
+}
+
+div.img:nth-child(1) {
+    background: url(../img/hist2.png);
+    background-repeat: no-repeat; 
+    background-size: contain;
+}
+
+div.img:nth-child(2) {
+    background: url(../img/hist7.jpg);
+    background-repeat: no-repeat; 
+    background-size: contain;
+}
+
+div.img:nth-child(3) {
+    background: url(../img/hist3.jpg);
+    background-repeat: no-repeat; 
+    background-size: contain;
+}
+
+div.img:nth-child(4) {
+    background: url(../img/hist5.jpg);
+    background-repeat: no-repeat; 
+    background-size: contain;
+}
+
+div.img:nth-child(5) {
+    background: url(../img/hist9.jpg);
+    background-repeat: no-repeat; 
+    background-size: contain;
+}
+
+.game_play {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 400px;
+}
+
+.game_play h1 {
+    font-family: 'Bahianita';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FAC100;
+}
+
+.div-gp-center {
+    width: 100%;
+    text-align: center;
+}
+
+.game_play_galeria_imagenes {
+    margin: 6% auto 10%;
+    width: 210px;
+    height: 95px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.game_play_carrusel {
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotationcarrusel 10s infinite linear;
+}
+
+.game_play_carrusel:hover {
+    animation-play-state: paused;
+}
+
+.game_play_carrusel figure {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    left: 10px;
+    top: 10px;
+    /*background: black;
+    border-image: linear-gradient(#FAC100, #FF7600) 30;
+    border-width: 1px;
+    border-style: solid;*/
+}
+
+.game_play_carrusel figure:nth-child(1) {
+    transform: rotateY(calc(1 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(2) {
+    transform: rotateY(calc(2 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(3) {
+    transform: rotateY(calc(3 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(4) {
+    transform: rotateY(calc(4 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(5) {
+    transform: rotateY(calc(5 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(6) {
+    transform: rotateY(calc(6 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(7) {
+    transform: rotateY(calc(7 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(8) {
+    transform: rotateY(calc(8 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(9) {
+    transform: rotateY(calc(9 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel figure:nth-child(10) {
+    transform: rotateY(calc(10 * 45deg)) translateZ(400px);
+}
+
+.game_play_carrusel img {
+    filter: saturate(0.5);
+    cursor: pointer;
+    transition: all .5s ease;
+    width: 100%;
+}
+
+.game_play_carrusel img:hover {
+    filter: saturate(1);
+    transform: scale(1.2, 1.2);
+}
+
+@keyframes rotationcarrusel {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }
 
 #flame-texto {
     display: inline-block;
     vertical-align: top;
-}
-
-.content-historia p {
-    margin: 10px;
 }
 
 .content-detalle-juego {
@@ -1448,7 +1600,6 @@ body.loader .loader_website span {
 .comentarista div {
     margin-left: 10px;
 }
-
 
 .detalle-cuatro-en-legends h1 {
     font-family: 'Bahianita';
@@ -1580,35 +1731,6 @@ ul.breadcrumb li a:hover {
 
     .footer-2 {
         flex-direction: row;
-    }
-
-    .historia {
-        grid-area: historia;
-    }
-
-    .feature {
-        grid-area: feature;
-    }
-
-    .genero {
-        grid-area: genero;
-    }
-
-    .modo-de-juego {
-        grid-area: modo-de-juego;
-    }
-
-    .argumento {
-        grid-area: argumento;
-    }
-
-    .content-historia {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1f;
-        grid-template-areas:
-            "historia feature modo-de-juego"
-            "historia genero argumento"
-        ;
     }
 
     .carousel-item-card iframe {
