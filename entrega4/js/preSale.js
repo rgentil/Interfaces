@@ -69,7 +69,6 @@ function scrollFunction() {
       }
     }
   });
-  console.log(scrollY);
   let spritSheetBackgroundCenter = document.querySelector('#sprit-sheet-background-center');
   if (scrollY < 1100) {
     spritSheetBackgroundCenter.style.bottom = "-50px";

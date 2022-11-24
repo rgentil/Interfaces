@@ -57,14 +57,13 @@ content {
     height: 100px;
 }
 
-.logo img {
-    transition: 1s;
+#imgLogo{
+    width: 100%;
+    transition: all 1s ease-out;
 }
 
-.logo.min img {
-    width: 50%;
-    margin-top: 5px;
-    margin-left: 20px;
+.logo.min #imgLogo {
+    width: 50%
 }
 
 .logo .slogan-logo {
@@ -1141,22 +1140,20 @@ body.loader .loader_website span {
 }
 
 @keyframes scroll1 {
-    from {
-        margin-left: 100%;
+    0%{
+        background-position: 0px;
     }
-
-    to {
-        margin-left: -80%;
+    100%{
+        background-position: -1920px;
     }
 }
 
 @keyframes scroll2 {
-    from {
-        margin-left: -80%;
+    0%{
+        background-position: -1920px;
     }
-
-    to {
-        margin-left: 100%;
+    100%{
+        background-position: 0px;
     }
 }
 
@@ -1165,29 +1162,32 @@ body.loader .loader_website span {
 }
 
 .layer {
-    min-width: 500px;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background-repeat: repeat-x;
-    background-size: cover;
 }
 
 .layer-1 {
     background-image: url(../img/parallax/clouds_1.png);
     animation: scroll1 10s infinite linear;
+    filter: blur(10px);
 }
 
 .layer-2 {
     background-image: url(../img/parallax/clouds_2.png);
     animation: scroll2 15s infinite linear;
+    height: 100%;
+    filter: blur(10px);
 }
 
 .layer-3 {
     background-image: url(../img/parallax/clouds_3.png);
     animation: scroll1 20s infinite linear;
+    height: 100%;
+    filter: blur(15px);
+    opacity: .75;
 }
 
 .layer-4 {
