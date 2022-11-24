@@ -62,75 +62,19 @@ function scrollFunction() {
     }
     else {
       if (op < 0.7) {
-        ssh1.style.opacity = 0.25;
+        ssh1.style.opacity = 0.50;
       } else {
-        if (op < 0.8) {
-          ssh1.style.opacity = 0.50;
-        }
-        else {
-          if (op < 0.9) {
-            ssh1.style.opacity = 0.75;
-          }
-          else {
-            ssh1.style.opacity = 1;
-          }
-        }
+
+        ssh1.style.opacity = 1;
       }
     }
   });
-
-  /*spritSheetBackgroundCenter.forEach(ssb => {
-    let op2 = 0 + document.documentElement.scrollTop / 1400;
-    if (op2 < 0.6) {
-      ssb.style.transform = 'translateY(100%)';
-      ssb.style.opacity = 0;
-    }
-    else {
-      if (op2 < 0.7) {
-        ssb.style.transform = 'translateY(75%)';
-        ssb.style.opacity = 0.25;
-      } else {
-        if (op2 < 0.8) {
-          ssb.style.transform = 'translateY(50%)';
-          ssb.style.opacity = 0.50;
-        }
-        else {
-          if (op2 < 0.9) {
-            ssb.style.transform = 'translateY(25%)';
-            ssb.style.opacity = 0.75;
-          }
-          else {
-            ssb.style.transform = 'translateY(0%)';
-            ssb.style.opacity = 1;
-          }
-        }
-      }
-    }
-  });*/
-
-  /*spritSheetBackgroundCenter.forEach(ssb => {
-    let op2 = 0 + document.documentElement.scrollTop / 1300;
-    if (op2 < 0.6) {
-      ssb.style.transform = 'translateY(100%)';
-      ssb.style.opacity = 0;
-    }
-    else {
-      if (op2 < 0.8) {
-        ssb.style.transform = 'translateY(50%)';
-        ssb.style.opacity = 0.50;
-      } else {
-        ssb.style.transform = 'translateY(0%)';
-        ssb.style.opacity = 1;
-      }
-    }
-  });*/
-
 
   let spritSheetBackgroundCenter = document.querySelector('#sprit-sheet-background-center');
   if (scrollY < 1000) {
     spritSheetBackgroundCenter.style.bottom = "-50px";
   } else {
-    if (scrollY > 1000 && scrollY < 1130) {
+    if (scrollY > 1000 && scrollY < 1160) {
       spritSheetBackgroundCenter.style.bottom = "-25px";
     } else {
       spritSheetBackgroundCenter.style.bottom = "2px";
@@ -141,7 +85,7 @@ function scrollFunction() {
   if (scrollY < 1000) {
     spritSheetBackgroundLeft.style.left = "-50px";
   } else {
-    if (scrollY > 1000 && scrollY < 1130) {
+    if (scrollY > 1000 && scrollY < 1160) {
       spritSheetBackgroundLeft.style.left = "-25px";
     } else {
       spritSheetBackgroundLeft.style.left = "2px";
@@ -152,7 +96,7 @@ function scrollFunction() {
   if (scrollY < 1000) {
     spritSheetBackgroundRigth.style.right = "-80px";
   } else {
-    if (scrollY > 1000 && scrollY < 1130) {
+    if (scrollY > 1000 && scrollY < 1160) {
       spritSheetBackgroundRigth.style.right = "-57px";
     } else {
       spritSheetBackgroundRigth.style.right = "-20px";
