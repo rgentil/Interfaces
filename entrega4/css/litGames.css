@@ -1304,7 +1304,7 @@ body.loader .loader_website span {
     margin: auto;
     transition: all .1s ease-out;
     position: relative;
-    left: -10px;
+    left: -50px;
     z-index: 0;
 }
 
@@ -1315,7 +1315,7 @@ body.loader .loader_website span {
     margin: auto;
     transition: all .1s ease-out;
     position: relative;
-    right: -20px;
+    right: -80px;
     z-index: 0;
 }
 

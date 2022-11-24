@@ -69,37 +69,43 @@ function scrollFunction() {
       }
     }
   });
-
+  console.log(scrollY);
   let spritSheetBackgroundCenter = document.querySelector('#sprit-sheet-background-center');
-  if (scrollY < 1000) {
+  if (scrollY < 900) {
     spritSheetBackgroundCenter.style.bottom = "-50px";
   } else {
-    if (scrollY > 1000 && scrollY < 1160) {
+    if (scrollY > 900 && scrollY < 1107) {
       spritSheetBackgroundCenter.style.bottom = "-25px";
     } else {
-      spritSheetBackgroundCenter.style.bottom = "2px";
+      if (scrollY > 1107) {
+        spritSheetBackgroundCenter.style.bottom = "2px";
+      }
     }
   }
 
   let spritSheetBackgroundLeft = document.querySelector('#sprit-sheet-background-left');
-  if (scrollY < 1000) {
+  if (scrollY < 900) {
     spritSheetBackgroundLeft.style.left = "-50px";
   } else {
-    if (scrollY > 1000 && scrollY < 1160) {
+    if (scrollY > 900 && scrollY < 1107) {
       spritSheetBackgroundLeft.style.left = "-25px";
     } else {
-      spritSheetBackgroundLeft.style.left = "2px";
+      if (scrollY > 1107) {
+        spritSheetBackgroundLeft.style.left = "2px";
+      }
     }
   }
 
   let spritSheetBackgroundRigth = document.querySelector('#sprit-sheet-background-rigth');
-  if (scrollY < 1000) {
+  if (scrollY < 900) {
     spritSheetBackgroundRigth.style.right = "-80px";
   } else {
-    if (scrollY > 1000 && scrollY < 1160) {
+    if (scrollY > 900 && scrollY < 1107) {
       spritSheetBackgroundRigth.style.right = "-57px";
     } else {
-      spritSheetBackgroundRigth.style.right = "-20px";
+      if (scrollY > 1107) {
+        spritSheetBackgroundRigth.style.right = "-20px";
+      }
     }
   }
 
