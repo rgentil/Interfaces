@@ -1141,22 +1141,22 @@ body.loader .loader_website span {
 }
 
 @keyframes scroll1 {
-    0% {
-        background-position-x: 0px;
+    from {
+        margin-left: 100%;
     }
 
-    100% {
-        background-position-x: -1077px;
+    to {
+        margin-left: -80%;
     }
 }
 
 @keyframes scroll2 {
-    0% {
-        background-position-x: -1080px;
+    from {
+        margin-left: -80%;
     }
 
-    100% {
-        background-position-x: -0px;
+    to {
+        margin-left: 100%;
     }
 }
 
@@ -1177,17 +1177,17 @@ body.loader .loader_website span {
 
 .layer-1 {
     background-image: url(../img/parallax/clouds_1.png);
-    animation: scroll1 5s infinite linear;
+    animation: scroll1 10s infinite linear;
 }
 
 .layer-2 {
     background-image: url(../img/parallax/clouds_2.png);
-    animation: scroll2 7s infinite linear;
+    animation: scroll2 15s infinite linear;
 }
 
 .layer-3 {
     background-image: url(../img/parallax/clouds_3.png);
-    animation: scroll1 10s infinite linear;
+    animation: scroll1 20s infinite linear;
 }
 
 .layer-4 {
