@@ -6,7 +6,6 @@ const arrowLeft = document.querySelector('#idArrowLeftPreSale');
 const arrowRight = document.querySelector('#idArrowRightPreSale');
 const flipCards = document.querySelectorAll('.flip-card-inner');
 const spritSheetH1 = document.querySelectorAll('.sprit-sheet h1');
-const spritSheetBackground = document.querySelectorAll('#sprit-sheet-background');
 const textos = document.querySelectorAll(".texto");
 const imgs = document.querySelectorAll(".img");
 
@@ -80,7 +79,7 @@ function scrollFunction() {
     }
   });
 
-  spritSheetBackground.forEach(ssb => {
+  /*spritSheetBackgroundCenter.forEach(ssb => {
     let op2 = 0 + document.documentElement.scrollTop / 1400;
     if (op2 < 0.6) {
       ssb.style.transform = 'translateY(100%)';
@@ -107,7 +106,58 @@ function scrollFunction() {
         }
       }
     }
-  });
+  });*/
+
+  /*spritSheetBackgroundCenter.forEach(ssb => {
+    let op2 = 0 + document.documentElement.scrollTop / 1300;
+    if (op2 < 0.6) {
+      ssb.style.transform = 'translateY(100%)';
+      ssb.style.opacity = 0;
+    }
+    else {
+      if (op2 < 0.8) {
+        ssb.style.transform = 'translateY(50%)';
+        ssb.style.opacity = 0.50;
+      } else {
+        ssb.style.transform = 'translateY(0%)';
+        ssb.style.opacity = 1;
+      }
+    }
+  });*/
+
+
+  let spritSheetBackgroundCenter = document.querySelector('#sprit-sheet-background-center');
+  if (scrollY < 1000) {
+    spritSheetBackgroundCenter.style.bottom = "-50px";
+  } else {
+    if (scrollY > 1000 && scrollY < 1130) {
+      spritSheetBackgroundCenter.style.bottom = "-25px";
+    } else {
+      spritSheetBackgroundCenter.style.bottom = "2px";
+    }
+  }
+
+  let spritSheetBackgroundLeft = document.querySelector('#sprit-sheet-background-left');
+  if (scrollY < 1000) {
+    spritSheetBackgroundLeft.style.left = "-50px";
+  } else {
+    if (scrollY > 1000 && scrollY < 1130) {
+      spritSheetBackgroundLeft.style.left = "-25px";
+    } else {
+      spritSheetBackgroundLeft.style.left = "2px";
+    }
+  }
+
+  let spritSheetBackgroundRigth = document.querySelector('#sprit-sheet-background-rigth');
+  if (scrollY < 1000) {
+    spritSheetBackgroundRigth.style.right = "-80px";
+  } else {
+    if (scrollY > 1000 && scrollY < 1130) {
+      spritSheetBackgroundRigth.style.right = "-57px";
+    } else {
+      spritSheetBackgroundRigth.style.right = "-20px";
+    }
+  }
 
   textos.forEach(function (t) {
     t.classList.add("oculto")
@@ -116,8 +166,6 @@ function scrollFunction() {
   imgs.forEach(function (t) {
     t.classList.add("imgOculta")
   })
-
-  console.log(scrollY);
 
   if (scrollY < 1700) {
     textos[0].classList.remove("oculto");

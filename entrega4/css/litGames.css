@@ -1286,14 +1286,37 @@ body.loader .loader_website span {
     /*min-height: 400px;*/
 }
 
-#sprit-sheet-background {
+#sprit-sheet-background-center {
     background-color: #212121;
     width: 130px;
     height: 160px;
     margin: auto;
-    transform: translateY(100%);
-    opacity: 0;
-    transition: all 1s ease-out;
+    transition: all .1s ease-out;
+    position: relative;
+    bottom: -50px;
+    z-index: 0;
+}
+
+#sprit-sheet-background-left {
+    background-color: #212121;
+    width: 130px;
+    height: 160px;
+    margin: auto;
+    transition: all .1s ease-out;
+    position: relative;
+    left: -10px;
+    z-index: 0;
+}
+
+#sprit-sheet-background-rigth {
+    background-color: #212121;
+    width: 130px;
+    height: 160px;
+    margin: auto;
+    transition: all .1s ease-out;
+    position: relative;
+    right: -20px;
+    z-index: 0;
 }
 
 #link-attack {
@@ -1370,6 +1393,7 @@ body.loader .loader_website span {
 
 .content-historia-detalle {
     width: 50%;
+    z-index: 1;
 }
 
 .content-historia {
